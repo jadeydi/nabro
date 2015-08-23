@@ -15,3 +15,4 @@
 # Custom
 /config/database.yml
 /config/secrets.yml
+.DS_Store

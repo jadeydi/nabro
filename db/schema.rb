@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822132850) do
+ActiveRecord::Schema.define(version: 20150823060231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,18 +23,44 @@ ActiveRecord::Schema.define(version: 20150822132850) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "moods", ["user_id"], name: "index_moods_on_user_id", using: :btree
+
+  create_table "user_auths", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "open_id"
+    t.text     "original"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_auths", ["provider", "open_id"], name: "index_user_auths_on_provider_and_open_id", unique: true, using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "access_token"
-    t.string   "avatar_url"
-    t.string   "gender"
-    t.datetime "last_clicked_at"
-    t.string   "nickname"
-    t.string   "openId"
-    t.string   "profile_url"
-    t.string   "provider"
+    t.datetime "expires_at"
     t.string   "refresh_token"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "avatar_url"
+    t.string   "profile_url"
+    t.string   "location"
+    t.string   "languages"
+    t.string   "nickname"
+    t.integer  "gender"
+    t.string   "provider"
+    t.string   "uid"
+    t.text     "bio"
+    t.datetime "last_clicked_at"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "email",               default: "", null: false
+    t.string   "encrypted_password",  default: "", null: false
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",       default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
   end
+
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
 
 end
