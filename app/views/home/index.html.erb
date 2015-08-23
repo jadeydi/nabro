@@ -1,6 +1,21 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
-<%= link_to 'Login in with Facebook', user_omniauth_authorize_path(:facebook) %>
-<%= link_to 'Login out', destroy_user_session_path, method: :delete %>
-<%= current_user.try :nickname %>
+<h4>
+<%= I18n.t('home.title') %>
+</h4>
+<%= link_to I18n.t('home.dull'), moods_path, method: 'post', class: 'js_dull_btn' %>
+<div>
+  <% if @mood %>
+    <% user = @mood.user %>
+    <%= image_tag user.avatar_url, size: '60x60' %>
+    <br />
+    <%= link_to user.nickname, user.profile_url, target: :black %>
+    <br />
+    <div>
+      <%= user.last_clicked_at %>
+    </div>
+  <% end %>
+</div>
+<% unless current_user %>
+  <div>
+    <%= link_to 'Log in with Facebook', user_omniauth_authorize_path(:facebook) %>
+  </div>
+<% end %>

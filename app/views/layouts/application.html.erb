@@ -7,8 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class='head'>
+    <% if current_user %>
+      <%= current_user.try :nickname %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <br />
+      <%= current_user.last_clicked_at %>
+    <% end %>
+      <div>
+        <%= I18n.t('site.desc.current_time') %>
+        <span class='js_current_time'></span>
+      </div>
+  </div>
 
-<%= yield %>
+  <div class='container'>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

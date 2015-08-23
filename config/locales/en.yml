@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  home:
+    dull: "Dull"
+    title: "How long will you stay here"
+  site:
+    desc:
+      current_time: 'Current time: '

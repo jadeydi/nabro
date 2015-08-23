@@ -18,3 +18,17 @@
   margin: 0px;
   padding: 0px;
 }
+
+body {
+  background-color: #f5f8fa;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #292f33;
+}
+
+.container {
+  text-align: center;
+}
+
+.head {
+  text-align: right;
+}

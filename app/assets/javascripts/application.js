@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require moment
 //= require_tree .
+
+$(function() {
+  $('.js_current_time').html(moment().utc().format('YYYY-MM-DD h:mm:ss UTC'));
+  setInterval(function() {
+    $('.js_current_time').html(moment().utc().format('YYYY-MM-DD h:mm:ss UTC'));
+  }, 1000);
+});
