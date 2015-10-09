@@ -27,3 +27,4 @@ en:
   site:
     desc:
       current_time: 'Current time: '
+    edit: "Edit"

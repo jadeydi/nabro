@@ -9,7 +9,8 @@
 <body>
   <div class='head'>
     <% if current_user %>
-      <%= current_user.try :nickname %>
+      <%= current_user.nickname %>
+      <%= link_to I18n.t("site.edit"), edit_user_registration_path %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       <br />
       <%= current_user.last_clicked_at %>

@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :recoverable and
-  devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+  # :confirmable, :lockable, :timeoutable and
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   GENDER = {'male': 0, 'female': 1}
 
   has_many :moods
+
+  before_create :init_last_clicked_at
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -21,5 +23,11 @@ class User < ActiveRecord::Base
 
   def update_last_clicked_at
     update_attribute :last_clicked_at, Time.now
+  end
+
+  private
+
+  def init_last_clicked_at
+    self.last_clicked_at = 2.days.ago
   end
 end
