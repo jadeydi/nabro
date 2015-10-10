@@ -5,7 +5,7 @@
 <div>
   <% if @mood %>
     <% user = @mood.user %>
-    <%= image_tag user.avatar_url, size: '60x60' %>
+    <%= image_tag user.avatar, size: '60x60' %>
     <br />
     <%= link_to user.nickname, user.profile_url, target: :black %>
     <br />

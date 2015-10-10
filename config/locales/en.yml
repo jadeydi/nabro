@@ -20,7 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   home:
     dull: "Dull"
     title: "How long will you stay here"
@@ -28,3 +27,5 @@ en:
     desc:
       current_time: 'Current time: '
     edit: "Edit"
+    edit_avatar: "Edit Avatar"
+    homepage: "Home"

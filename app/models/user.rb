@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   before_create :init_last_clicked_at
 
+  mount_uploader :avatar_url, AvatarUploader
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = "#{auth.provider}+#{auth.uid}@imdull.com"
@@ -23,6 +25,10 @@ class User < ActiveRecord::Base
 
   def update_last_clicked_at
     update_attribute :last_clicked_at, Time.now
+  end
+
+  def avatar
+    avatar_url.url + "?imageView/1/w/200/h/200"
   end
 
   private

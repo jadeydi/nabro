@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Nabro</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class='head'>
-    <% if current_user %>
-      <%= current_user.nickname %>
-      <%= link_to I18n.t("site.edit"), edit_user_registration_path %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <br />
-      <%= current_user.last_clicked_at %>
-    <% end %>
+  <head>
+    <title>Nabro</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class='head'>
+      <%= link_to t("site.homepage"), root_path %>
+      <% if current_user %>
+        <%= link_to t("site.edit"), edit_user_registration_path %>
+        <%= link_to t("site.edit_avatar"), update_avatar_users_path %>
+        <%= link_to t("site.sign_out"), destroy_user_session_path, method: :delete %>
+        <br />
+        <%= current_user.last_clicked_at %>
+      <% else  %>
+        <%= link_to t("site.sign_in"), new_user_session_path %>
+      <% end %>
       <div>
         <%= I18n.t('site.desc.current_time') %>
         <span class='js_current_time'></span>
       </div>
-  </div>
+    </div>
 
-  <div class='container'>
-    <%= yield %>
-  </div>
+    <div class='container'>
+      <%= yield %>
+    </div>
 
-</body>
+  </body>
 </html>

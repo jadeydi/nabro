@@ -27,11 +27,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'carrierwave-qiniu'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'recursive-open-struct'
-gem 'qiniu'
+gem 'hashids'
 
 group :development do
   gem 'capistrano-rails'

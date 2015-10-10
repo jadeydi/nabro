@@ -1,0 +1,6 @@
+<%= image_tag current_user.avatar, size: '100x100' %>
+<%= form_tag update_avatar_users_path, multipart: true do %>
+  <%= file_field_tag :avatar %>
+  <br />
+  <%= submit_tag "Update" %>
+<% end %>
