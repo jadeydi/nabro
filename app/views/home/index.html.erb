@@ -1,6 +1,10 @@
 <h4>
 <%= I18n.t('home.title') %>
 </h4>
+<% if notice.present? %>
+  <%= notice %>
+  <br />
+<% end %>
 <%= link_to I18n.t('home.dull'), moods_path, method: 'post', class: 'js_dull_btn' %>
 <div>
   <% if @mood %>
@@ -14,8 +18,3 @@
     </div>
   <% end %>
 </div>
-<% unless current_user %>
-  <div>
-    <%= link_to 'Log in with Facebook', user_omniauth_authorize_path(:facebook) %>
-  </div>
-<% end %>

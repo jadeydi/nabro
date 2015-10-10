@@ -29,3 +29,5 @@ en:
     edit: "Edit"
     edit_avatar: "Edit Avatar"
     homepage: "Home"
+    prompt:
+      already_clicked: "Already Clicked"

@@ -10,3 +10,6 @@ zh-CN:
     homepage: 首页
     sign_out: 退出
     sign_in: 登录
+    sign_up: 注册
+    prompt:
+      already_clicked: 已经点击

@@ -6,6 +6,6 @@ class MoodsController < ApplicationController
       end
       current_user.moods.create && current_user.update_last_clicked_at
     end
-    redirect_to root_url
+    redirect_to root_url, notice: I18n.t("site.prompt.already_clicked")
   end
 end
