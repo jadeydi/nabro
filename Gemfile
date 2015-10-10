@@ -34,6 +34,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'recursive-open-struct'
 gem 'hashids'
+gem 'puma'
 
 group :development do
   gem 'capistrano-rails'
