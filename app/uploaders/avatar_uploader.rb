@@ -14,6 +14,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "avatars"
   end
 
+  def default_url
+    "#{CarrierWave::Uploader::Base.qiniu_protocol}://#{CarrierWave::Uploader::Base.qiniu_bucket_domain}/avatars/default.png"
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
