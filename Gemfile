@@ -9,7 +9,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -27,8 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 gem 'carrierwave'
+gem 'carrierwave-qiniu', github: 'lazing/carrierwave-qiniu'
 gem 'mini_magick'
-gem 'carrierwave-qiniu'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
