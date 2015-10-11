@@ -1,11 +1,13 @@
 <h4>
 <%= I18n.t('home.title') %>
 </h4>
-<% if notice.present? %>
-  <%= notice %>
-  <br />
-<% end %>
-<%= link_to I18n.t('home.dull'), moods_path, method: 'post', class: 'js_dull_btn' %>
+<div class="js-need-sign-in hidden">
+  请先登录
+</div>
+<div class="js-already-clicked hidden">
+  <%= I18n.t("site.prompt.already_clicked") %>
+</div>
+<%= link_to I18n.t('home.dull'), moods_path, method: 'post', class: 'js-dull-btn', data: {last_clicked_at: last_clicked_at} %>
 <div>
   <% if @mood %>
     <% user = @mood.user %>
