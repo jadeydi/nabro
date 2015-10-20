@@ -35,6 +35,7 @@ gem 'omniauth-facebook'
 gem 'recursive-open-struct'
 gem 'hashids'
 gem 'puma'
+gem 'active_model_serializers'
 
 group :development do
   gem 'capistrano-rails'

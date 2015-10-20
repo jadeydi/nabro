@@ -32,6 +32,9 @@ module Nabro
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.generators.assets = false
+    config.generators.helper = false
+
     $system = RecursiveOpenStruct.new(YAML.load(File.read("#{Rails.root}/config/system.yml"))[Rails.env])
   end
 end

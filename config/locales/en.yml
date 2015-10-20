@@ -31,3 +31,5 @@ en:
     homepage: "Home"
     prompt:
       already_clicked: "Already Clicked"
+  error:
+    username_or_password_not_match: "Username or password not match"

@@ -11,4 +11,15 @@ Rails.application.routes.draw do
   end
 
   resources :moods, only: [:create]
+
+  scope module: 'api' do
+    constraints subdomain: 'api' do
+      resource :users, only: [] do
+        collection do
+          post :sign_up
+          post :sign_in
+        end
+      end
+    end
+  end
 end
