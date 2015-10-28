@@ -13,7 +13,7 @@ class Api::UsersController < Api::BaseController
   def sign_in
     @user = User.find_by_email(params[:email])
 
-    if @user.valid_password?(params[:password])
+    if @user && @user.valid_password?(params[:password])
       render json: @user
     else
       render json: {errors: I18n.t("error.username_or_password_not_match")}, status: :unauthorized
