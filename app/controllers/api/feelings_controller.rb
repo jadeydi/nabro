@@ -1,5 +1,4 @@
 class Api::FeelingsController < Api::BaseController
-  before_action :authenticate_user!
 
   def create
     if Time.now.utc.to_date > current_user.last_clicked_at.to_date
