@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @mood = Mood.last
+    @feeling = Feeling.last
   end
 end

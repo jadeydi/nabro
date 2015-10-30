@@ -3,8 +3,8 @@
 
 $(function() {
   var date = moment().utc().startOf('day') / 1000,
-      lastClickedAt = $('.js-dull-btn').data('last-clicked-at');
-  $(".js-dull-btn").on("click", function(event) {
+  lastClickedAt = $('.js-feeling-btn').data('last-clicked-at');
+  $(".js-feeling-btn").on("click", function(event) {
     if ($(this).data("last-clicked-at") == "") {
       event.preventDefault();
       event.stopPropagation();

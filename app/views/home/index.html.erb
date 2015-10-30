@@ -7,10 +7,10 @@
 <div class="js-already-clicked hidden">
   <%= I18n.t("site.prompt.already_clicked") %>
 </div>
-<%= link_to I18n.t('home.dull'), moods_path, method: 'post', class: 'js-dull-btn', data: {last_clicked_at: last_clicked_at} %>
+<%= link_to I18n.t('home.feeling'), feelings_path, method: 'post', class: 'js-feeling-btn', data: {last_clicked_at: last_clicked_at} %>
 <div>
-  <% if @mood %>
-    <% user = @mood.user %>
+  <% if @feeling %>
+    <% user = @feeling.user %>
     <%= image_tag user.avatar, size: '60x60' %>
     <br />
     <%= link_to user.nickname, user.profile_url, target: :black %>

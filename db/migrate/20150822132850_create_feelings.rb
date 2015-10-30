@@ -1,12 +1,12 @@
-class CreateMoods < ActiveRecord::Migration
+class CreateFeelings < ActiveRecord::Migration
   def change
-    create_table :moods do |t|
+    create_table :feelings do |t|
       t.datetime :ended_at
       t.integer :user_id
 
       t.timestamps null: false
     end
 
-    add_index :moods, :user_id
+    add_index :feelings, :user_id
   end
 end

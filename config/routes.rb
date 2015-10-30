@@ -10,6 +10,8 @@ Rails.application.routes.draw do
             post :sign_in
           end
         end
+
+        resource :feelings, only: [:create]
       end
 #    end
   end
@@ -25,6 +27,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :moods, only: [:create]
+  resources :feelings, only: [:create]
 
 end

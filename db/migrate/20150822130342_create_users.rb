@@ -1,6 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      t.string :authentication_token
       t.string :access_token
       t.datetime :expires_at
       t.string :refresh_token
@@ -25,5 +26,6 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     add_index :users, [:provider, :uid], unique: true
+    add_index :users, :authentication_token, unique: true
   end
 end
