@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
 
   GENDER = {'male': 0, 'female': 1}
 
-  has_many :moods
+  has_many :feelings
 
-  before_create :init_last_clicked_at
+  before_create :init_last_clicked_at, :generate_authentication_token
 
   mount_uploader :avatar_url, AvatarUploader
 
@@ -35,5 +35,15 @@ class User < ActiveRecord::Base
 
   def init_last_clicked_at
     self.last_clicked_at = 2.days.ago
+  end
+
+  def generate_authentication_token
+    loop do
+      token = SecureRandom.hex
+      unless User.where(authentication_token: token).first
+        self.authentication_token = token
+        break
+      end
+    end
   end
 end

@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20150823060231) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "moods", force: :cascade do |t|
+  create_table "feelings", force: :cascade do |t|
     t.datetime "ended_at"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "moods", ["user_id"], name: "index_moods_on_user_id", using: :btree
+  add_index "feelings", ["user_id"], name: "index_feelings_on_user_id", using: :btree
 
   create_table "user_auths", force: :cascade do |t|
     t.string   "provider"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150823060231) do
   add_index "user_auths", ["provider", "open_id"], name: "index_user_auths_on_provider_and_open_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
+    t.string   "authentication_token"
     t.string   "access_token"
     t.datetime "expires_at"
     t.string   "refresh_token"
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150823060231) do
     t.inet     "last_sign_in_ip"
   end
 
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
