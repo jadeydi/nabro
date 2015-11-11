@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20150823060231) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "feelings", force: :cascade do |t|
+  create_table "states", force: :cascade do |t|
     t.datetime "ended_at"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "feelings", ["user_id"], name: "index_feelings_on_user_id", using: :btree
+  add_index "states", ["user_id"], name: "index_states_on_user_id", using: :btree
 
   create_table "user_auths", force: :cascade do |t|
     t.string   "provider"

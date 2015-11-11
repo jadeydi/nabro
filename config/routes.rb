@@ -1,21 +1,5 @@
 Rails.application.routes.draw do
 
-  scope module: :api do
-#    constraints subdomain: 'api' do
-      resources :base, only: [:index]
-      scope :v1 do
-        resource :users, only: [] do
-          collection do
-            post :sign_up
-            post :sign_in
-          end
-        end
-
-        resource :feelings, only: [:create]
-      end
-#    end
-  end
-
   root 'home#index'
 
   devise_for :users, controllers: { omniauth_callbacks: "sessions" }
@@ -27,6 +11,22 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :feelings, only: [:create]
+  resources :states, only: [:create]
+
+  scope module: :api do
+#    constraints subdomain: 'api' do
+      resources :base, only: [:index]
+      scope :v1 do
+        resource :users, only: [] do
+          collection do
+            post :sign_up
+            post :sign_in
+          end
+        end
+
+        resource :states, only: [:create]
+      end
+#    end
+  end
 
 end

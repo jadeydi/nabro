@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   GENDER = {'male': 0, 'female': 1}
 
-  has_many :feelings
+  has_many :states
 
   before_create :init_last_clicked_at, :generate_authentication_token
 
