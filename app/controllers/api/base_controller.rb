@@ -3,7 +3,8 @@ class Api::BaseController < ApplicationController
   before_action :setup_user, :verify_user_from_token
 
   def index
-    render json: {success: "Hello API"}
+    @user = State.last.user
+    render json: @user
   end
 
   private
