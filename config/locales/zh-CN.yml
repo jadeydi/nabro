@@ -13,3 +13,5 @@ zh-CN:
     sign_up: 注册
     prompt:
       already_clicked: 已经点击
+  error:
+    username_or_password_not_match: 用户名密码不匹配
