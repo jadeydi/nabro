@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  devise_for :users, controllers: { omniauth_callbacks: "sessions" }
+  devise_for :users
 
   resources :users, only: [] do
     collection do
