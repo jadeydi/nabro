@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -36,6 +36,7 @@ gem 'recursive-open-struct'
 gem 'hashids'
 gem 'puma'
 gem 'active_model_serializers', "~> 0.10.0.rc3"
+gem 'bootstrap', "~> 4.0.0.alpha1"
 
 group :development do
   gem 'capistrano-rails'

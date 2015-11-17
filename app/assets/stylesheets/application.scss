@@ -1,0 +1,21 @@
+@import "bootstrap";
+@import "home";
+@import "user";
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #f5f8fa;
+  color: #292f33;
+}
+
+.head {
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}

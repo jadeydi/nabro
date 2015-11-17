@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and
+  # :confirmable, :lockable, :timeoutable and, :omniauthable, :omniauth_providers => [:facebook]
   devise :database_authenticatable, :recoverable, :registerable, :rememberable, :trackable, :validatable
 
   GENDER = {'male': 0, 'female': 1}

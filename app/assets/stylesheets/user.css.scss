@@ -1,0 +1,14 @@
+$mobile-width: 480px;
+/* sign in/up */
+.user.sign {
+  max-width: $mobile-width;
+  margin: 0 auto;
+  padding-top: 32px;
+  &.in {
+  }
+  &.out {
+  }
+  h2 {
+    text-align: center;
+  }
+}

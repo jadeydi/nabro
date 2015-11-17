@@ -16,9 +16,6 @@
         <%= link_to t("site.sign_out"), destroy_user_session_path, method: :delete %>
         <br />
         <%= current_user.last_clicked_at %>
-      <% else  %>
-        <%= link_to t("site.sign_in"), new_user_session_path %>
-        <%= link_to t("site.sign_up"), new_user_registration_path %>
       <% end %>
       <div>
         <%= I18n.t('site.desc.current_time') %>
