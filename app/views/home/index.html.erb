@@ -9,12 +9,13 @@
   <% end %>
 </div>
 <div class='text-center'>
-  <div class="js-need-sign-in hidden">
-    请先登录
-  </div>
-  <div class="js-already-clicked hidden">
-    <%= I18n.t("site.prompt.already_clicked") %>
-  </div>
-  <%= link_to I18n.t('home.state'), states_path, method: 'post', class: 'js-state-btn', data: {last_clicked_at: last_clicked_at} %>
+  <% if current_user %>
+    <div class="js-already-clicked hidden">
+      <%= I18n.t("site.prompt.already_clicked") %>
+    </div>
+    <%= link_to I18n.t('home.state'), states_path, method: 'post', class: 'js-state-btn', data: {last_clicked_at: last_clicked_at} %>
+  <% else %>
+    <%= link_to I18n.t('home.state'), new_user_session_path %>
+  <% end %>
 </div>
 </div>
