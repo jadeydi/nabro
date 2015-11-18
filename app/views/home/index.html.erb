@@ -1,22 +1,20 @@
-<h4>
-<%= I18n.t('home.title') %>
-</h4>
-<div class="js-need-sign-in hidden">
-  请先登录
-</div>
-<div class="js-already-clicked hidden">
-  <%= I18n.t("site.prompt.already_clicked") %>
-</div>
-<%= link_to I18n.t('home.state'), states_path, method: 'post', class: 'js-state-btn', data: {last_clicked_at: last_clicked_at} %>
+<div class='home index'>
 <div>
   <% if @state %>
     <% user = @state.user %>
-    <%= image_tag user.avatar, size: '60x60' %>
-    <br />
-    <%= link_to user.nickname, user.profile_url, target: :black %>
-    <br />
-    <div>
+    <%= image_tag user.avatar, size: '80x80', class: 'img-circle center-block' %>
+    <div class='text-center'>
       <%= user.last_clicked_at %>
     </div>
   <% end %>
+</div>
+<div class='text-center'>
+  <div class="js-need-sign-in hidden">
+    请先登录
+  </div>
+  <div class="js-already-clicked hidden">
+    <%= I18n.t("site.prompt.already_clicked") %>
+  </div>
+  <%= link_to I18n.t('home.state'), states_path, method: 'post', class: 'js-state-btn', data: {last_clicked_at: last_clicked_at} %>
+</div>
 </div>
