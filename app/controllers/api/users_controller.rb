@@ -1,7 +1,17 @@
 class Api::UsersController < Api::BaseController
-  skip_before_action :verify_user_from_token
+  skip_before_action :verify_user_from_token, only: [:show, :sign_in, :sign_up]
 
-  def sign_up
+  def show
+    @user = User.find(User.decrypt_id(params[:id]))
+    render json: @user
+  end
+
+  def update
+    current_user.update_attributes(public_params)
+    render json: current_user
+  end
+
+  def log_up
     @user = User.new(user_params)
 
     if @user.save
@@ -11,7 +21,7 @@ class Api::UsersController < Api::BaseController
     end
   end
 
-  def sign_in
+  def log_in
     @user = User.find_by_email(params[:email])
 
     if @user && @user.valid_password?(params[:password])
@@ -22,6 +32,10 @@ class Api::UsersController < Api::BaseController
   end
 
   private
+
+  def public_params
+    params[:user].permit(:nickname, :biography)
+  end
 
   def user_params
     params.require(:user).permit(:email, :password, :nickname)

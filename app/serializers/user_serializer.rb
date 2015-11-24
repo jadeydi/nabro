@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :nickname, :token, :avatar, :last_clicked_at
+  attributes :id, :nickname, :token, :avatar, :biography, :last_clicked_at
 
   def id
     object.encrypted_id
