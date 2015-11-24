@@ -11,4 +11,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      redirect_to root_url
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def user_params
+    params[:user].permit(:nickname, :biography)
+  end
+
 end

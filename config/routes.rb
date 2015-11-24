@@ -2,12 +2,16 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  devise_for :users
+  devise_for :users, :skip => [:registrations]
+  as :user do
+    get 'users/sign_up' => 'devise/registrations#new', :as => 'new_user_registration'
+    post 'users' => 'devise/registrations#create', :as => 'user_registration'
+  end
 
-  resources :users, only: [] do
+  resource :users, only: [:edit, :update] do
     collection do
-      get 'update_avatar'
-      post 'update_avatar'
+      get :update_avatar
+      post :update_avatar
     end
   end
 
