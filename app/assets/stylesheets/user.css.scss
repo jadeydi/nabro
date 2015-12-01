@@ -37,12 +37,7 @@ $account-width: 320px;
   }
 }
 
-/* home */
-.home.index {
-  @include small-layout;
-}
-
-/* */
+/* user edit */
 .user {
   .avatar {
     text-align: center;
@@ -50,5 +45,14 @@ $account-width: 320px;
     img {
       border-radius: 100px;
     }
+  }
+}
+
+/* home */
+.home.index {
+  @include small-layout;
+
+  .item {
+    margin-top: 16px;
   }
 }

@@ -1,21 +1,28 @@
-<div class='home index'>
+<div class='home index border'>
 <div>
   <% if @state %>
     <% user = @state.user %>
-    <%= image_tag user.avatar, size: '80x80', class: 'img-circle center-block' %>
-    <div class='text-center'>
-      最后点击: <%= user.last_clicked_at %>
+    <%= image_tag user.avatar, size: '100x100', class: 'img-circle center-block' %>
+    <div class='text-center item'>
+      <%= user.nickname %>
+    </div>
+    <div class='text-center item'>
+      <%= user.last_clicked_at %>
     </div>
   <% end %>
 </div>
-<div class='text-center'>
+<div class='text-center item'>
   <% if current_user %>
     <div class="js-already-clicked hidden">
       <%= I18n.t("site.prompt.already_clicked") %>
     </div>
     <%= link_to I18n.t('home.state'), states_path, method: 'post', class: 'js-state-btn btn btn-success', data: {last_clicked_at: last_clicked_at} %>
   <% else %>
-    <%= link_to '替换', new_user_session_path, class: 'btn btn-succucss' %>
+    <div class="container">
+      <div class="row">
+        <%= link_to '替换', new_user_session_path, class: 'btn btn-success col-xs-12' %>
+      </div>
+    </div>
   <% end %>
 </div>
 </div>
