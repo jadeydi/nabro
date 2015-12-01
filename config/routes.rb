@@ -2,20 +2,21 @@ Rails.application.routes.draw do
 
   scope module: :api do
 #    constraints subdomain: 'api' do
-    resources :base, only: [:index]
-    resources :users, only: [:show] do
-      collection do
-        post :log_up
-        post :log_in
+      resources :base, only: [:index]
+      resources :users, only: [:show] do
+        collection do
+          post :reset_password
+          put  :update_avatar
+          post :logup
+          post :login
+        end
       end
-    end
-    put :users, to: 'users#update'
+      put :users, to: 'users#update'
 
-    resource :states, only: [:create]
+      resource :states, only: [:create]
 #    end
   end
 
-begin
   root 'home#index'
 
   devise_for :users, :skip => [:registrations]
@@ -32,6 +33,5 @@ begin
   end
 
   resources :states, only: [:create]
-end
 
 end

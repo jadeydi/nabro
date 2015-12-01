@@ -1,9 +1,19 @@
 class Api::UsersController < Api::BaseController
-  skip_before_action :verify_user_from_token, only: [:show, :sign_in, :sign_up]
+  skip_before_action :verify_user_from_token, only: [:show, :login, :logup]
 
   def show
     @user = User.find(User.decrypt_id(params[:id]))
     render json: @user
+  end
+
+  def reset_password
+    @user = User.find_by_email(params[:email])
+    if @user
+      @user.send_reset_password_instructions
+      render json: {succuss: true}, status: :ok
+    else
+      render json: {errors: "用户不存在"}, status: :not_found
+    end
   end
 
   def update
@@ -11,7 +21,17 @@ class Api::UsersController < Api::BaseController
     render json: current_user
   end
 
-  def log_up
+  def update_avatar
+    current_user.avatar_url = params[:avatar]
+    if current_user.save
+      render json: current_user
+    else
+      logger.info current_user.errors.full_messages
+      render json: {errors: "头像更新失败"}, status: :not_acceptable
+    end
+  end
+
+  def logup
     @user = User.new(user_params)
 
     if @user.save
@@ -21,7 +41,7 @@ class Api::UsersController < Api::BaseController
     end
   end
 
-  def log_in
+  def login
     @user = User.find_by_email(params[:email])
 
     if @user && @user.valid_password?(params[:password])

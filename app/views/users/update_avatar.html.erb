@@ -1,11 +1,11 @@
 <div class="user ailse">
 <div class="media">
   <div class='media-left media-middle' >
-  <%= image_tag current_user.avatar, size: '100x100'%>
+    <%= image_tag current_user.avatar, size: '100x100'%>
   </div>
   <%= form_tag update_avatar_users_path, multipart: true, class: 'media-body' do %>
     <div class="m-b m-t">
-    <%= file_field_tag :avatar %>
+      <%= file_field_tag :avatar %>
     </div>
     <div>
       <%= submit_tag "Update", class: "btn btn-success" %>
