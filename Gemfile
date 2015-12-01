@@ -37,6 +37,7 @@ gem 'hashids'
 gem 'puma'
 gem 'active_model_serializers', "~> 0.10.0.rc3"
 gem 'bootstrap', "~> 4.0.0.alpha1"
+gem 'font-awesome-sass', '~> 4.4.0'
 
 group :development do
   gem 'capistrano-rails'

@@ -1,3 +1,5 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap";
 @import "home";
 @import "user";
@@ -5,8 +7,17 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Georgia, "Microsoft YaHei", "微软雅黑", STXihei, Arial, sans-serif;
 
+  font-size: 14px;
   background-color: #f5f8fa;
   color: #292f33;
+}
+
+.form-control {
+  font-size: 0.875rem;
+}
+
+.btn {
+  font-size: 0.875rem;
 }
 
 .head {
@@ -15,4 +26,9 @@ body {
 
 .hidden {
   display: none;
+}
+
+.border {
+  border: 5px solid #eee;
+  border-radius: 5px;
 }

@@ -1,24 +1,38 @@
 $mobile-width: 480px;
+$account-width: 320px;
 @mixin small-layout {
   background: white;
-  max-width: $mobile-width;
-  margin: 0 auto;
-  padding: 23px 26px;
+  max-width: $account-width;
+  margin: 128px auto;
+  padding: 23px 16px;
 }
 
 /* sign in/up */
 .user.ailse {
   @include small-layout;
+
   &.in {
   }
+
   &.out {
   }
+
   h2 {
     text-align: center;
+    font-size: 18px;
+    margin-bottom: 24px;
   }
+
   .next {
+    margin-left: 32px;
+  }
+
+  .other-links {
     line-height: 38px;
-    margin-left: 23px;
+    text-align: center;
+    a {
+      color: #aaa;
+    }
   }
 }
 

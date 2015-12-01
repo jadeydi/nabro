@@ -9,7 +9,6 @@
   </head>
   <body>
     <div class='head'>
-      <%= link_to t("site.homepage"), root_path %>
       <% if current_user %>
         <%= link_to t("site.edit"), edit_users_path %>
         <%= link_to t("site.edit_avatar"), update_avatar_users_path %>
@@ -17,10 +16,6 @@
         <br />
         <%= current_user.last_clicked_at %>
       <% end %>
-      <div>
-        <%= I18n.t('site.desc.current_time') %>
-        <span class='js_current_time'></span>
-      </div>
     </div>
 
     <div class='container'>
