@@ -1,14 +1,18 @@
-<div class="user ailse">
+<div class="user ailse border">
+<div class='avatar'>
+  <%=image_tag(current_user.avatar, size: '100x100') %>
+</div>
+
 <div class="media">
-  <div class='media-left media-middle' >
-    <%= image_tag current_user.avatar, size: '100x100'%>
-  </div>
   <%= form_tag update_avatar_users_path, multipart: true, class: 'media-body' do %>
-    <div class="m-b m-t">
+    <div class="m-b m-t" style="text-align: center">
       <%= file_field_tag :avatar %>
     </div>
-    <div>
-      <%= submit_tag "Update", class: "btn btn-success" %>
+
+    <div class="container">
+      <div class="row">
+        <%= submit_tag "更新", class: 'btn btn-success col-xs-12' %>
+      </div>
     </div>
   <% end %>
 </div>

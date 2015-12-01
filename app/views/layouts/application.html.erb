@@ -11,7 +11,6 @@
     <div class='head'>
       <% if current_user %>
         <%= link_to t("site.edit"), edit_users_path %>
-        <%= link_to t("site.edit_avatar"), update_avatar_users_path %>
         <%= link_to t("site.sign_out"), destroy_user_session_path, method: :delete %>
         <br />
         <%= current_user.last_clicked_at %>

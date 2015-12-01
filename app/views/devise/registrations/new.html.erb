@@ -25,7 +25,7 @@
       <span class="input-group-addon">
         <%= icon('key') %>
       </span>
-      <%= f.password_field :password, placeholder: '密码', autocomplete: "off", class: 'form-control' %>
+      <%= f.password_field :password, placeholder: '密码(最少6位)', autocomplete: "off", class: 'form-control' %>
     </div>
   </div>
 
@@ -46,6 +46,6 @@
 <% end %>
 
 <div class="other-links">
-  <%= link_to "< 返回", new_user_session_path, style: 'line-height: 38px;' %>
+  <%= link_to "< 返回", new_user_session_path %>
 </div>
 </div>
