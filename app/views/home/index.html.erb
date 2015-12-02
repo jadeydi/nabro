@@ -16,7 +16,22 @@
     <div class="js-already-clicked hidden">
       <%= I18n.t("site.prompt.already_clicked") %>
     </div>
-    <%= link_to I18n.t('home.state'), states_path, method: 'post', class: 'js-state-btn btn btn-success', data: {last_clicked_at: last_clicked_at} %>
+
+    <div class="container">
+      <div class="row">
+        <%= link_to I18n.t('home.state'), states_path, method: 'post', class: 'js-state-btn btn btn-success col-xs-12', data: {last_clicked_at: last_clicked_at} %>
+      </div>
+    </div>
+
+    <div class="container navi">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <%= link_to edit_users_path do %>
+            <%= icon('user') %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% else %>
     <div class="container">
       <div class="row">

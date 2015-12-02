@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-$(function() {
+var ready = function() {
   var date = moment().utc().startOf('day') / 1000,
   lastClickedAt = $('.js-state-btn').data('last-clicked-at');
   $(".js-state-btn").on("click", function(event) {
@@ -17,4 +17,6 @@ $(function() {
       $('.js-already-clicked').show();
     }
   });
-});
+}
+$(document).ready(ready);
+$(document).on('page:load', ready);

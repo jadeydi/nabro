@@ -4,7 +4,7 @@ $account-width: 320px;
 @mixin small-layout {
   background: white;
   max-width: $account-width;
-  margin: 128px auto;
+  margin: 10em auto;
   padding: 23px 16px;
 }
 
@@ -54,5 +54,16 @@ $account-width: 320px;
 
   .item {
     margin-top: 16px;
+  }
+}
+
+
+@media (max-width: 48em) {
+  .home.index {
+    margin-top: 5em;
+  }
+
+  .user.ailse {
+    margin-top: 6em;
   }
 }

@@ -15,10 +15,29 @@
     <%= f.text_area :biography, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    最后点击: <%= current_user.last_clicked_at %>
+  </div>
+
   <div class="container">
     <div class="row">
-    <%= f.submit "更新", class: 'btn btn-success col-xs-12' %>
+      <%= f.submit "更新", class: 'btn btn-success col-xs-12' %>
     </div>
   </div>
 <% end %>
+
+<div class="container navi">
+  <div class="row">
+    <div class="col-xs-6 text-center">
+      <%= link_to root_path do %>
+        <%= icon('home') %>
+      <% end %>
+    </div>
+    <div class="col-xs-6 text-center">
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <%= icon('sign-out') %>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>
