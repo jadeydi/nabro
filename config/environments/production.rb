@@ -76,4 +76,25 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { :host => 'brushulife.com' }
+  config.action_mailer.asset_host = "http://brushulife.com"
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "brushulife.com",
+    :user_name => "postmaster@brushulife.com",
+    :password => $system.smtp.password
+  }
 end
+
+Nabro::Application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+  :email_prefix => "[Nabro] ",
+  :sender_address => %{"Nabro (Error)" <postmaster@brushulife.com>},
+  :exception_recipients => %w{im.yuqlee@gmail.com}
+}
