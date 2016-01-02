@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h4>
+  要做的事
+  <%= link_to '新建', new_attempt_path %>
+</h4>
+
+<div class='row user attempts'>
+  <% @attempts.each do |a|  %>
+    <div class='item'>
+      <div class='content'>
+        <%= a.content %>
+      </div>
+      <% if a.active? %>
+        <div>
+          <%= link_to "编辑", edit_attempt_path(a) %>
+          <%= link_to "完成", attempt_path(a), method: 'delete', data: {confirm: "不可恢复哦!"} %>
+        </div>
+      <% else %>
+        <div>
+          已完成
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @attempts %>

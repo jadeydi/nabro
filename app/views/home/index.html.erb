@@ -1,43 +1,32 @@
-<div class='home index border'>
-<div>
-  <% if @state %>
-    <% user = @state.user %>
-    <%= image_tag user.avatar, size: '100x100', class: 'img-circle center-block' %>
-    <div class='text-center item'>
-      <%= user.nickname %>
+<div class='home index border <%= 'user' if current_user %>'>
+<% if current_user %>
+  <% if @try %>
+    <%= image_tag current_user.avatar, size: '100x100', class: 'img-circle center-block' %>
+    <div class="content">
+      <%= @try.attempt.content %>
     </div>
-    <div class='text-center item'>
-      <%= user.last_clicked_at %>
-    </div>
-  <% end %>
-</div>
-<div class='text-center item'>
-  <% if current_user %>
-    <div class="js-already-clicked hidden">
-      <%= I18n.t("site.prompt.already_clicked") %>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <%= link_to I18n.t('home.state'), states_path, method: 'post', class: 'js-state-btn btn btn-success col-xs-12', data: {last_clicked_at: last_clicked_at} %>
-      </div>
-    </div>
-
-    <div class="container navi">
-      <div class="row">
-        <div class="col-xs-12 text-center">
-          <%= link_to edit_users_path do %>
-            <%= icon('user') %>
-          <% end %>
+    <% if @try.active? %>
+      <div class='row operator'>
+        <div class='col-xs-6'>
+          <%= link_to "放弃", discard_user_attempt_path(@try), method: 'post', class: 'discard' %>
+        </div>
+        <div class='col-xs-6'>
+          <%= link_to "完成", done_user_attempt_path(@try), method: 'post' %>
         </div>
       </div>
-    </div>
-  <% else %>
-    <div class="container">
-      <div class="row">
-        <%= link_to I18n.t('home.state'), new_user_session_path, class: 'btn btn-success col-xs-12' %>
+    <% elsif @try.done?%>
+      <div class='done'>
+        <i class='fa fa-check'></i> 完成
       </div>
-    </div>
+    <% elsif @try.discard? %>
+      <div class='discard'>
+        <i class='fa fa-close'></i> 放弃
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to '刷', user_attempts_path, method: :post, class: 'brush' %>
   <% end %>
-</div>
+<% else %>
+  <%= link_to '刷', new_user_session_path, class: 'brush' %>
+<% end %>
 </div>

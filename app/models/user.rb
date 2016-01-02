@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and, :omniauthable, :omniauth_providers => [:facebook]
   devise :database_authenticatable, :recoverable, :registerable, :rememberable, :trackable, :validatable
@@ -6,6 +7,8 @@ class User < ActiveRecord::Base
   GENDER = {'male': 0, 'female': 1}
 
   has_many :states
+  has_many :attempts
+  has_many :user_attempts
 
   before_create :init_last_clicked_at, :generate_authentication_token
 
@@ -29,6 +32,10 @@ class User < ActiveRecord::Base
 
   def avatar
     avatar_url.url + "?imageView/1/w/200/h/200"
+  end
+
+  def last_try
+    user_attempts.includes(:attempt).last
   end
 
   private

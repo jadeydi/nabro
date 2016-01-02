@@ -1,11 +1,12 @@
 $mobile-width: 480px;
-$account-width: 320px;
+$account-width: 360px;
 
 @mixin small-layout {
   background: white;
-  max-width: $account-width;
-  margin: 10em auto;
-  padding: 23px 16px;
+  width: $account-width;
+  max-width: 98%;
+  margin: 8em auto;
+  padding: 48px 24px;
 }
 
 /* sign in/up */
@@ -24,12 +25,8 @@ $account-width: 320px;
     margin-bottom: 24px;
   }
 
-  .next {
-    margin-left: 32px;
-  }
-
   .other-links {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     text-align: center;
     a {
       color: #aaa;
@@ -51,9 +48,52 @@ $account-width: 320px;
 /* home */
 .home.index {
   @include small-layout;
+  background: none;
+  text-align: center;
+  font-size: 16px;
+  &.user {
+    margin-top: 5em;
+  }
 
-  .item {
-    margin-top: 16px;
+  .brush {
+    border-radius: 39px;
+    background-color: #72b9ff;
+    display: inline-block;
+    padding: 18px 25px;
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    &:hover {
+      background-color: #97c7f2;
+    }
+  }
+
+  .content {
+    margin-top: 1em;
+  }
+  .done {
+    margin-top: 2em;
+    color: #72b9ff;
+  }
+  .discard {
+    margin-top: 2em;
+    color: #d9534f;
+  }
+
+  .operator {
+    margin-top: 3em;
+    a {
+      font-size: 14px;
+      color: #72b9ff;
+      border: 1px solid #72b9ff;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 2px;
+      &.discard {
+        color: #d9534f;
+        border-color: #d9534f;
+      }
+    }
   }
 }
 
@@ -69,5 +109,18 @@ $account-width: 320px;
 
   .user.edit {
     margin-top: 1.5em;
+  }
+}
+
+/*attempts*/
+.user.attempts {
+  .item {
+    margin: 0 7px;
+    padding: 7px;
+    border-top: 1px solid #ddd;
+    .content {
+      max-height: 72px;
+      overflow: hidden;
+    }
   }
 }

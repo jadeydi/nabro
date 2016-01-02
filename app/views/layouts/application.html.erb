@@ -9,10 +9,22 @@
     <%= favicon_link_tag %>
   </head>
   <body>
+    <div class="header">
+      <%= link_to "B", "/", class: 'logo' %>
+      <div class="pull-right nav">
+        <% if current_user %>
+          <%= link_to "要做", attempts_path %>
+          <%= link_to current_user.nickname, edit_users_path %>
+          <%= link_to "退出", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "登录", new_user_session_path %>
+          <%= link_to "注册", new_user_registration_path %>
+        <% end %>
+      </div>
+    </div>
 
     <div class='container'>
       <%= yield %>
     </div>
-
   </body>
 </html>

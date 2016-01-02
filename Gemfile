@@ -39,9 +39,13 @@ gem 'active_model_serializers', "~> 0.10.0.rc3"
 gem 'bootstrap', "~> 4.0.0.alpha1"
 gem 'font-awesome-sass', '~> 4.4.0'
 gem 'exception_notification'
+gem 'rolify'
+gem 'kaminari'
 
 group :development do
+  gem 'capistrano-rvm'
   gem 'capistrano-rails'
+  gem 'capistrano3-puma'
 end
 
 group :development, :test do

@@ -16,6 +16,13 @@ Rails.application.routes.draw do
   end
 
   resources :states, only: [:create]
+  resources :attempts
+  resources :user_attempts, only: [:create] do
+    member do
+      post :done
+      post :discard
+    end
+  end
 
   scope module: :api do
     constraints subdomain: 'api' do
