@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :states
   has_many :attempts
+  has_many :comments
   has_many :user_attempts
 
   before_create :init_last_clicked_at, :generate_authentication_token

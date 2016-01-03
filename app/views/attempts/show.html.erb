@@ -1,4 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class='user show'>
+<%= image_tag @author.avatar, size: '80x80', class: 'img-circle center-block', alt: @author.nickname %>
 
-<%= link_to 'Edit', edit_attempt_path(@attempt) %> |
-<%= link_to 'Back', attempts_path %>
+<div class='content'>
+  <div class='attempt'>
+    <%= @attempt.content %>
+  </div>
+  <div class='comments'>
+    <% unless @comments.blank? %>
+      <ul>
+        <% @comments.each do |c| %>
+          <li class='item'>
+            <%= image_tag c.user.avatar, size: '32x32', class: 'img-circle' %>
+            <%= c.user.nickname %>
+            <% if c.user_id == current_user.try(:id) %>
+              <%= link_to '删除', comment_path(c), method: 'delete', data: {confirm: '确定删除？'} %>
+            <% end %>
+            <div>
+              <%= c.content %>
+            </div>
+            <div class='other'>
+              <%= c.created_at.to_s %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% if current_user %>
+      <%= form_for Comment.new do |f| %>
+        <%= f.hidden_field :target_type, value: @attempt.class %>
+        <%= f.hidden_field :target_id, value: @attempt.id %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control' %>
+        </div>
+        <div class="container">
+          <div class="row">
+            <%= f.submit "更新", class: 'btn btn-success col-xs-2' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>

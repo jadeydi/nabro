@@ -11,7 +11,8 @@
   <body>
     <div class="header">
       <%= link_to "B", "/", class: 'logo' %>
-      <div class="pull-right nav">
+      <%= link_to "浏览", user_attempts_path, class: 'nav' %>
+      <div class="pull-right user">
         <% if current_user %>
           <%= link_to "要做", attempts_path %>
           <%= link_to current_user.nickname, edit_users_path %>

@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
   resources :states, only: [:create]
   resources :attempts
-  resources :user_attempts, only: [:create] do
+  resources :comments
+  resources :user_attempts, only: [:create, :index] do
     member do
       post :done
       post :discard

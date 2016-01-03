@@ -1,0 +1,10 @@
+<ul>
+<% @user_attempts.each do |ua| %>
+  <li class='item'>
+    <%= image_tag ua.user.avatar, size: '32x32', class: 'img-circle' %>
+    <%= ua.user.nickname %>
+    <%= user_attempt_type(ua) %> 一次任务
+    <%= link_to ua.attempt.title, ua.attempt %>
+  </li>
+<% end %>
+</ul>

@@ -1,5 +1,9 @@
 class UserAttemptsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
+
+  def index
+    @user_attempts = UserAttempt.includes([:user, :attempt]).order(updated_at: :desc).limit(50)
+  end
 
   def create
     count = current_user.attempts.where(status: 0).count

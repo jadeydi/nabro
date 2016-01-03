@@ -11,6 +11,11 @@ body {
   color: #46433f;
 }
 
+ol, ul {
+  list-style: none;
+  padding: 0px;
+}
+
 .form-control {
   font-size: 0.875rem;
 }
@@ -72,6 +77,13 @@ body {
     }
   }
   .nav {
+    margin-left: 3em;
+    color: #46433f;
+    &:hover {
+      color: #72b9ff;
+    }
+  }
+  .user {
     a {
       margin-right: 1.5em;
     }

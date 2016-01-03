@@ -1,5 +1,5 @@
 class AttemptsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   before_action :set_attempt, only: [:show, :edit, :update, :destroy]
 
   # GET /attempts
@@ -9,6 +9,8 @@ class AttemptsController < ApplicationController
 
   # GET /attempts/1
   def show
+    @author = @attempt.user
+    @comments = @attempt.comments.includes(:user).page(params[:page]).per(30)
   end
 
   # GET /attempts/new
@@ -34,7 +36,7 @@ class AttemptsController < ApplicationController
   # PATCH/PUT /attempts/1
   def update
     if @attempt.update(attempt_params)
-      redirect_to @attempt, notice: 'Attempt was successfully updated.'
+      redirect_to @attempt, notice: '要做更新成功'
     else
       render :edit
     end
