@@ -10,16 +10,18 @@
       <ul>
         <% @comments.each do |c| %>
           <li class='item'>
-            <%= image_tag c.user.avatar, size: '32x32', class: 'img-circle' %>
-            <%= c.user.nickname %>
-            <% if c.user_id == current_user.try(:id) %>
-              <%= link_to '删除', comment_path(c), method: 'delete', data: {confirm: '确定删除？'} %>
-            <% end %>
-            <div>
-              <%= c.content %>
-            </div>
-            <div class='other'>
-              <%= c.created_at.to_s %>
+            <%= image_tag c.user.avatar, size: '36x36', class: 'img-circle'%>
+            <div class='detail'>
+              <%= c.user.nickname %>
+              <span class='created at'>
+                <%= c.created_at.to_s %>
+              </span>
+              <div>
+                <%= c.content %>
+                <% if c.user_id == current_user.try(:id) %>
+                  <%= link_to '删除', comment_path(c), method: 'delete', data: {confirm: '确定删除？'} %>
+                <% end %>
+              </div>
             </div>
           </li>
         <% end %>
@@ -34,7 +36,7 @@
         </div>
         <div class="container">
           <div class="row">
-            <%= f.submit "更新", class: 'btn btn-success col-xs-2' %>
+            <%= f.submit "建议", class: 'btn btn-success col-xs-2' %>
           </div>
         </div>
       <% end %>

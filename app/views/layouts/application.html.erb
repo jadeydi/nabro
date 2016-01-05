@@ -9,12 +9,12 @@
     <%= favicon_link_tag %>
   </head>
   <body>
-    <div class="header">
+    <nav class='header'>
+      <%= link_to "浏览", user_attempts_path, class: 'explore' %>
       <%= link_to "B", "/", class: 'logo' %>
-      <%= link_to "浏览", user_attempts_path, class: 'nav' %>
       <div class="pull-right user">
         <% if current_user %>
-          <%= link_to "要做", attempts_path %>
+          <%= link_to t('site.attempt'), attempts_path %>
           <%= link_to current_user.nickname, edit_users_path %>
           <%= link_to "退出", destroy_user_session_path, method: :delete %>
         <% else %>
@@ -22,7 +22,7 @@
           <%= link_to "注册", new_user_registration_path %>
         <% end %>
       </div>
-    </div>
+    </nav>
 
     <div class='container'>
       <%= yield %>

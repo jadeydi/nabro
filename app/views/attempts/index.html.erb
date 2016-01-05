@@ -1,36 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h4 class='title'>
-  要做
-  <%= link_to '新建', new_attempt_path %>
-</h4>
-
-<div class='row user attempts'>
+<div class='attempt index'>
+<div class='user'>
+  <%= image_tag current_user.avatar, size: '80x80', class: 'img-circle', alt: current_user.nickname %>
+  <%= link_to new_attempt_path, class: 'new' do %>
+    <i class="fa fa-pencil-square-o"></i>
+  <% end %>
+</div>
+<ul class='list'>
   <% @attempts.each do |a|  %>
-    <div class='col-xl-3'>
-      <div class='item'>
-        <div class='content'>
-          <%= a.content %>
-        </div>
+    <li>
+      <div class='title'>
+        <%= a.title %>
+      </div>
+      <div class='opt'>
+        <%= a.created_at %>
         <% if a.active? %>
-          <div class='row operator'>
-            <div class='col-xs-6'>
-              <%= link_to "编辑", edit_attempt_path(a) %>
-            </div>
-            <div class='col-xs-6'>
-              <%= link_to "完成", attempt_path(a), method: 'delete', data: {confirm: "不可恢复哦!"} %>
-            </div>
-          </div>
+          <span>
+            <%= link_to "编辑", edit_attempt_path(a) %>
+            <%= link_to "完成", attempt_path(a), method: 'delete', data: {confirm: "不可恢复哦!"} %>
+          </span>
         <% else %>
-          <div class='operator'>
-            <div>
-              已完成
-            </div>
-          </div>
+          <span class="label label-info">完成</span>
         <% end %>
       </div>
-    </div>
+    </li>
   <% end %>
+</ul>
 </div>
 
 <%= paginate @attempts %>
