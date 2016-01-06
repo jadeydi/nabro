@@ -1,0 +1,9 @@
+zh-CN:
+  attempt:
+    max: "最多有七个"
+  activerecord:
+    models:
+      attempt: 待做
+    attributes:
+      attempt:
+        content: 内容

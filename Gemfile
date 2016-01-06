@@ -41,6 +41,7 @@ gem 'font-awesome-sass', '~> 4.4.0'
 gem 'exception_notification'
 gem 'rolify'
 gem 'kaminari'
+gem 'rails-i18n', '~> 4.0.0'
 
 group :development do
   gem 'capistrano-rvm'

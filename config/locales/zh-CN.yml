@@ -16,3 +16,10 @@ zh-CN:
       already_clicked: 已经点击
   error:
     username_or_password_not_match: 用户名密码不匹配
+  views:
+      pagination:
+        first: "&laquo;"
+        last: " &raquo;"
+        previous: "&lsaquo; "
+        next: " &rsaquo;"
+        truncate: "&hellip;"
