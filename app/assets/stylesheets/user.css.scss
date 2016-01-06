@@ -44,7 +44,8 @@ h4.title {
 }
 
 /* user edit */
-.user {
+.user.edit {
+  margin-top: 2rem;
   .avatar {
     text-align: center;
     margin-bottom: 16px;
@@ -89,6 +90,16 @@ h4.title {
 
   .operator {
     margin-top: 3em;
+    .left {
+      text-align: right;
+      a {
+        color: #d9534f;
+        border-color: #d9534f;
+      }
+    }
+    .right {
+      text-align: left;
+    }
     a {
       font-size: 14px;
       color: #72b9ff;
@@ -96,27 +107,7 @@ h4.title {
       display: inline-block;
       padding: 6px 18px;
       border-radius: 2px;
-      &.discard {
-        margin-top: 0;
-        color: #d9534f;
-        border-color: #d9534f;
-      }
     }
-  }
-}
-
-
-@media (max-width: 48em) {
-  .home.index {
-    margin-top: 5em;
-  }
-
-  .user.ailse {
-    margin-top: 6em;
-  }
-
-  .user.edit {
-    margin-top: 1.5em;
   }
 }
 
@@ -131,7 +122,7 @@ h4.title {
   }
 
   .attempt {
-    font-size: 18px;
+    font-size: 1.125rem;
     text-align: center;
   }
 
@@ -164,11 +155,11 @@ h4.title {
 }
 
 /*attempt index*/
-.attempt.index {
+.user-attempts.index {
   width: 520px;
   max-width: 98%;
   margin: 3rem auto;
-  .user {
+  .profile {
     text-align: center;
     img {
       vertical-align: bottom;
@@ -224,6 +215,50 @@ h4.title {
         float: right;
         color: #b2b3b7;
       }
+    }
+  }
+}
+
+@media (max-width: 544px) {
+  .home.index {
+    margin-top: 1.6rem;
+    .brush {
+      margin-top: 1.8rem;
+    }
+  }
+
+  .user.ailse {
+    margin-top: 2rem;
+  }
+
+  .user.edit {
+    margin-top: 1.5rem;
+  }
+
+  /*site*attempts*/
+  .site.attempts {
+    margin-top: 2rem;
+    .heading {
+      font-size: 3.2em;
+      line-height: 1.2;
+    }
+  }
+
+  .user-attempts.index {
+    margin: 1.6rem auto;
+    .list {
+      margin-top: 2rem;
+    }
+  }
+
+  .user.edit {
+    margin-top: 0;
+  }
+
+  .user.show {
+    margin-top: 1.2rem;
+    .comments {
+      margin-top: 1.6rem;
     }
   }
 }

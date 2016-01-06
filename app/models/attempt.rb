@@ -12,6 +12,6 @@ class Attempt < ActiveRecord::Base
 
   private
   def generate_title
-    self.title = content.truncate(15)
+    self.title = content.truncate(36)
   end
 end

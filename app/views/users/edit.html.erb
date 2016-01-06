@@ -1,6 +1,6 @@
-<div class='user edit ailse border'>
+<div class='user ailse edit border'>
 <div class='avatar'>
-  <%=link_to image_tag(@user.avatar, size: '100x100'), update_avatar_users_path %>
+  <%=link_to image_tag(@user.avatar, size: '80x80'), update_avatar_users_path %>
 </div>
 
 <%= form_for(@user, url: users_path, html: { method: :put }) do |f| %>

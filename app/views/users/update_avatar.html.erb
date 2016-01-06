@@ -1,6 +1,6 @@
-<div class="user ailse border">
+<div class="user ailse edit border">
 <div class='avatar'>
-  <%=image_tag(current_user.avatar, size: '100x100') %>
+  <%=image_tag(current_user.avatar, size: '80x80') %>
 </div>
 
 <div class="media">
@@ -15,15 +15,5 @@
       </div>
     </div>
   <% end %>
-
-  <div class="container navi">
-    <div class="row">
-      <div class="col-xs-12 text-center">
-        <%= link_to edit_users_path do %>
-          <%= icon('user') %>
-        <% end %>
-      </div>
-    </div>
-  </div>
 </div>
 </div>

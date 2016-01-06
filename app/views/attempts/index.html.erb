@@ -1,5 +1,5 @@
-<div class='attempt index'>
-<div class='user'>
+<div class='user-attempts index'>
+<div class='profile'>
   <%= image_tag current_user.avatar, size: '80x80', class: 'img-circle', alt: current_user.nickname %>
   <%= link_to new_attempt_path, class: 'new' do %>
     <i class="fa fa-pencil-square-o"></i>
@@ -25,6 +25,6 @@
     </li>
   <% end %>
 </ul>
-</div>
 
 <%= paginate @attempts %>
+</div>
