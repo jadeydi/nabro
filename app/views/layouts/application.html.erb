@@ -15,7 +15,9 @@
       <div class="pull-right user">
         <% if current_user %>
           <%= link_to t('site.attempt'), attempts_path %>
-          <%= link_to current_user.nickname, edit_users_path %>
+          <%= link_to edit_users_path do %>
+            <%= image_tag current_user.avatar, size: '36x36', class: 'img-circle' %>
+          <% end %>
           <%= link_to "退出", destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to "登录", new_user_session_path %>
