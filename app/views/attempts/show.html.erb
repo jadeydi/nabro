@@ -1,0 +1,44 @@
+<div class='user show'>
+<%= image_tag @author.avatar, size: '80x80', class: 'img-circle center-block', alt: @author.nickname %>
+
+<div class='content'>
+  <div class='attempt'>
+    <%= @attempt.content %>
+  </div>
+  <div class='comments'>
+    <% unless @comments.blank? %>
+      <ul>
+        <% @comments.each do |c| %>
+          <li class='item'>
+            <%= image_tag c.user.avatar, size: '36x36', class: 'img-circle'%>
+            <div class='detail'>
+              <%= c.user.nickname %>
+              <span class='created at'>
+                <%= c.created_at.to_s %>
+              </span>
+              <div>
+                <%= c.content %>
+                <% if c.user_id == current_user.try(:id) %>
+                  <%= link_to '删除', comment_path(c), method: 'delete', data: {confirm: '确定删除？'} %>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% if current_user %>
+      <%= form_for Comment.new do |f| %>
+        <%= f.hidden_field :target_type, value: @attempt.class %>
+        <%= f.hidden_field :target_id, value: @attempt.id %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control' %>
+        </div>
+        <div>
+          <%= f.submit "建议", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>

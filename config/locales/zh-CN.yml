@@ -3,6 +3,7 @@ zh-CN:
     state: 闲着
     title: 你会在这里呆多长时间
   site:
+    attempt: 待做
     desc:
       current_time: "当前时间: "
     edit: 编辑
@@ -15,3 +16,10 @@ zh-CN:
       already_clicked: 已经点击
   error:
     username_or_password_not_match: 用户名密码不匹配
+  views:
+      pagination:
+        first: "&laquo;"
+        last: " &raquo;"
+        previous: "&lsaquo; "
+        next: " &rsaquo;"
+        truncate: "&hellip;"

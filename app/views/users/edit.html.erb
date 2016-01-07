@@ -1,6 +1,6 @@
-<div class='user edit ailse border'>
+<div class='user ailse edit border'>
 <div class='avatar'>
-  <%=link_to image_tag(@user.avatar, size: '100x100'), update_avatar_users_path %>
+  <%=link_to image_tag(@user.avatar, size: '80x80'), update_avatar_users_path %>
 </div>
 
 <%= form_for(@user, url: users_path, html: { method: :put }) do |f| %>
@@ -25,19 +25,4 @@
     </div>
   </div>
 <% end %>
-
-<div class="container navi">
-  <div class="row">
-    <div class="col-xs-6 text-center">
-      <%= link_to root_path do %>
-        <%= icon('home') %>
-      <% end %>
-    </div>
-    <div class="col-xs-6 text-center">
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= icon('sign-out') %>
-      <% end %>
-    </div>
-  </div>
-</div>
 </div>

@@ -33,6 +33,14 @@ Rails.application.routes.draw do
   end
 
   resources :states, only: [:create]
+  resources :attempts
+  resources :comments
+  resources :user_attempts, only: [:create, :index] do
+    member do
+      post :done
+      post :discard
+    end
+  end
 
 
 end

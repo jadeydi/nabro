@@ -7,8 +7,17 @@ body {
   font-family: "Helvetica Neue", Helvetica, Georgia, "Microsoft YaHei", "微软雅黑", STXihei, Arial, sans-serif;
 
   font-size: 14px;
-  background-color: #f5f8fa;
-  color: #292f33;
+  background: white;
+  color: #46433f;
+}
+
+ol, ul {
+  list-style: none;
+  padding: 0px;
+}
+
+a {
+  color: #72b9ff;
 }
 
 .form-control {
@@ -28,8 +37,8 @@ body {
 }
 
 .border {
-  border: 5px solid #eee;
-  border-radius: 5px;
+//  border: 5px solid #eee;
+  border-radius: 3px;
 }
 
 .navi {
@@ -38,5 +47,62 @@ body {
 
   a {
     color: #aaa;
+  }
+}
+
+.btn-yellow {
+  padding: 0.6rem 1rem;
+  border-radius: 1.6rem;
+  background-color: #ffd460;
+  color: white;
+  &:hover {
+    background-color: #EDC558;
+    color: white;
+  }
+  &:focus {
+    color: white;
+  }
+}
+
+#error_explanation {
+  color: #d9534f;
+}
+
+/* header */
+.header {
+  background-color: #f8f9fa;
+  a {
+    display: inline-block;
+    line-height: 48px;
+    color: #b2b3b7;
+    &.logo {
+      float: left;
+      background-color: #72b9ff;
+      font-size: 24px;
+      color: white;
+      text-align: center;
+      padding: 0 24px;
+      text-decoration: none;
+    }
+  }
+  .explore {
+    margin-left: 2rem;
+    color: #46433f;
+    &:hover {
+      color: #72b9ff;
+    }
+  }
+  .user {
+    a {
+      margin-right: 1.5em;
+    }
+  }
+}
+
+@media (max-width: 544px) {
+  .user {
+    a {
+      margin-right: 0.8em;
+    }
   }
 }

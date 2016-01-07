@@ -1,11 +1,21 @@
 $mobile-width: 480px;
-$account-width: 320px;
+$account-width: 360px;
 
 @mixin small-layout {
   background: white;
-  max-width: $account-width;
-  margin: 10em auto;
-  padding: 23px 16px;
+  width: $account-width;
+  max-width: 98%;
+  margin: 5em auto;
+  padding: 48px 24px;
+}
+
+h4.title {
+  font-size: 1.125rem;
+  margin: 42px 0 16px;
+  a {
+    margin-left: 2rem;
+    font-size: 0.875rem;
+  }
 }
 
 /* sign in/up */
@@ -24,12 +34,8 @@ $account-width: 320px;
     margin-bottom: 24px;
   }
 
-  .next {
-    margin-left: 32px;
-  }
-
   .other-links {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     text-align: center;
     a {
       color: #aaa;
@@ -38,7 +44,8 @@ $account-width: 320px;
 }
 
 /* user edit */
-.user {
+.user.edit {
+  margin-top: 2rem;
   .avatar {
     text-align: center;
     margin-bottom: 16px;
@@ -51,23 +58,207 @@ $account-width: 320px;
 /* home */
 .home.index {
   @include small-layout;
+  background: none;
+  text-align: center;
+  font-size: 16px;
 
-  .item {
-    margin-top: 16px;
+  .brush {
+    margin-top: 3em;
+    border-radius: 39px;
+    background-color: #72b9ff;
+    display: inline-block;
+    padding: 18px 25px;
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    &:hover {
+      background-color: #97c7f2;
+    }
+  }
+
+  .content {
+    margin-top: 1em;
+  }
+  .done {
+    margin-top: 2em;
+    color: #72b9ff;
+  }
+  .discard {
+    margin-top: 2em;
+    color: #d9534f;
+  }
+
+  .operator {
+    margin-top: 3em;
+    .left {
+      text-align: right;
+      a {
+        color: #d9534f;
+        border-color: #d9534f;
+      }
+    }
+    .right {
+      text-align: left;
+    }
+    a {
+      font-size: 14px;
+      color: #72b9ff;
+      border: 1px solid #72b9ff;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 2px;
+    }
   }
 }
 
+/*user#show*/
+.user.show {
+  margin-top: 3rem;
 
-@media (max-width: 48em) {
+  .content {
+    width: 520px;
+    max-width: 98%;
+    margin: 2em auto;
+  }
+
+  .attempt {
+    font-size: 1.125rem;
+    text-align: center;
+  }
+
+  .comments {
+    margin-top: 3em;
+    .item {
+      padding: 1em 0;
+      border-top: 1px dashed #ccc;
+      &:hover {
+        a {
+          display: inline-block;
+        }
+      }
+      a {
+        float: right;
+        display: none;
+      }
+      .created.at {
+        color: #b2b3b7;
+        float: right;
+      }
+      img {
+        float: left;
+      }
+      .detail {
+        margin-left: 4em;
+      }
+    }
+  }
+}
+
+/*attempt index*/
+.user-attempts.index {
+  width: 520px;
+  max-width: 98%;
+  margin: 3rem auto;
+  .profile {
+    text-align: center;
+    img {
+      vertical-align: bottom;
+    }
+    .new {
+      margin-left: 1em;
+      font-size: 1.4em;
+    }
+  }
+  .list {
+    margin-top: 3rem;
+    li {
+      border-top: 1px dashed #eee;
+      padding: 12px 0;
+    }
+    .title {
+      font-size: 1.125em;
+    }
+    .opt {
+      margin-top: 0.5em;
+      color: #b2b3b7;
+      span {
+        float: right;
+        a {
+          margin-left: 0.6em;
+        }
+      }
+    }
+  }
+}
+
+/*site attempts*/
+.site.attempts {
+  width: 520px;
+  max-width: 98%;
+  margin: 3rem auto;
+  .heading {
+    text-align: center;
+    font-size: 4.2em;
+  }
+  .list {
+    margin-top: 2rem;
+    li {
+      padding: 12px 0;
+      border-top: 1px dashed #eee;
+      .avatar {
+        float: left;
+      }
+      .content {
+        margin-left: 4em;
+      }
+      .created.at {
+        float: right;
+        color: #b2b3b7;
+      }
+    }
+  }
+}
+
+@media (max-width: 544px) {
   .home.index {
-    margin-top: 5em;
+    margin-top: 1.6rem;
+    .brush {
+      margin-top: 1.8rem;
+    }
   }
 
   .user.ailse {
-    margin-top: 6em;
+    margin-top: 2rem;
   }
 
   .user.edit {
-    margin-top: 1.5em;
+    margin-top: 1.5rem;
+  }
+
+  /*site*attempts*/
+  .site.attempts {
+    margin-top: 2rem;
+    .heading {
+      font-size: 3.2em;
+      line-height: 1.2;
+    }
+  }
+
+  .user-attempts.index {
+    margin: 1.6rem auto;
+    .list {
+      margin-top: 2rem;
+    }
+  }
+
+  .user.edit {
+    margin-top: 0;
+  }
+
+  .user.show {
+    margin-top: 1.2rem;
+    .comments {
+      margin-top: 1.6rem;
+    }
   }
 }
