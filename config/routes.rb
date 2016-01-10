@@ -7,13 +7,12 @@ Rails.application.routes.draw do
         collection do
           post :reset_password
           put  :update_avatar
-          post :signup
-          post :login
+          post :sign_up
+          post :sign_in
         end
       end
       put :users, to: 'users#update'
-
-      resource :states, only: [:create]
+      resources :attempts
 #    end
   end
 
@@ -41,6 +40,5 @@ Rails.application.routes.draw do
       post :discard
     end
   end
-
 
 end

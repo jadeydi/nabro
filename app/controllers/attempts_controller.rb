@@ -3,7 +3,7 @@ class AttemptsController < ApplicationController
   before_action :set_attempt, only: [:show, :edit, :update, :destroy]
 
   def index
-    @attempts = current_user.attempts.order(:status).page(params[:page]).per(30)
+    @attempts = current_user.attempts.order(:status).order(created_at: :desc).page(params[:page]).per(30)
   end
 
   def show
@@ -47,6 +47,6 @@ class AttemptsController < ApplicationController
   end
 
   def attempt_params
-    params[:attempt].permit(:title, :content)
+    params[:attempt].permit(:content)
   end
 end
