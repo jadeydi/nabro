@@ -24,4 +24,8 @@ class ActiveRecord::Base
     h = Hashids.new(Uploader::SALT + self.table_name, Uploader::SIZE)
     h.decode(token).first
   end
+
+  def self.find_by_encrypt_id(token)
+    find decrypt_id(token)
+  end
 end
