@@ -1,5 +1,5 @@
-class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :content, :created_at
+class UserAttemptSerializer < ActiveModel::Serializer
+  attributes :id, :status, :created_at
 
   def id
     object.encrypted_id
@@ -10,4 +10,5 @@ class CommentSerializer < ActiveModel::Serializer
   end
 
   belongs_to :user
+  belongs_to :attempt
 end

@@ -1,10 +1,13 @@
 class Api::UsersController < Api::BaseController
-
   skip_before_action :verify_user_from_token, only: [:show, :sign_in, :sign_up, :reset_password]
 
   def show
     @user = User.find(User.decrypt_id(params[:id]))
     render json: @user
+  end
+
+  def me
+    render json: current_user
   end
 
   def reset_password

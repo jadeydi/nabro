@@ -12,7 +12,9 @@ class Api::AttemptsController < Api::BaseController
   end
 
   def show
-    render json: @attempt, root: false
+    @comments = @attempt.comments.limit(1)
+
+    render json: @attempt, with_comments: true
   end
 
   def create

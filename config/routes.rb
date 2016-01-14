@@ -9,10 +9,19 @@ Rails.application.routes.draw do
           put  :update_avatar
           post :sign_up
           post :sign_in
+          get :me
         end
       end
       put :users, to: 'users#update'
-      resources :attempts
+      resources :attempts, only: [:index, :show, :create, :update, :destroy]
+      resources :comments
+      get 'browser', to: 'user_attempts#index'
+      resources :user_attempts, only: [:create] do
+        member do
+          put :done
+          put :discard
+        end
+      end
 #    end
   end
 
