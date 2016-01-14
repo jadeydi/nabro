@@ -2,8 +2,8 @@
 <%= image_tag @author.avatar, size: '80x80', class: 'img-circle center-block', alt: @author.nickname %>
 
 <div class='content'>
-  <div class='attempt'>
-    <%= @attempt.content %>
+  <div class='task'>
+    <%= @task.content %>
   </div>
   <div class='comments'>
     <% unless @comments.blank? %>
@@ -29,8 +29,8 @@
     <% end %>
     <% if current_user %>
       <%= form_for Comment.new do |f| %>
-        <%= f.hidden_field :target_type, value: @attempt.class %>
-        <%= f.hidden_field :target_id, value: @attempt.id %>
+        <%= f.hidden_field :target_type, value: @task.class %>
+        <%= f.hidden_field :target_id, value: @task.id %>
         <div class="form-group">
           <%= f.text_area :content, class: 'form-control' %>
         </div>

@@ -1,6 +1,6 @@
-<h4 style='text-align: center;'><%= t("site.attempt") %></h4>
-<%= form_for(@attempt) do |f| %>
-  <%= render 'shared/errors', obj: @attempt %>
+<h4 style='text-align: center;'><%= t("site.task") %></h4>
+<%= form_for(@task) do |f| %>
+  <%= render 'shared/errors', obj: @task %>
 
   <div class="form-group">
     <%= f.label :content, '内容' %>

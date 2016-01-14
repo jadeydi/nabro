@@ -1,9 +1,9 @@
 zh-CN:
-  attempt:
+  task:
     max: "最多有七个"
   activerecord:
     models:
-      attempt: 待做
+      task: 待做
     attributes:
-      attempt:
+      task:
         content: 内容

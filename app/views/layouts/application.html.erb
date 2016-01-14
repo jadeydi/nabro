@@ -10,11 +10,11 @@
   </head>
   <body>
     <nav class='header'>
-      <%= link_to "浏览", user_attempts_path, class: 'explore' %>
+      <%= link_to "浏览", attempts_path, class: 'explore' %>
       <%= link_to "B", "/", class: 'logo' %>
       <div class="pull-right user">
         <% if current_user %>
-          <%= link_to t('site.attempt'), attempts_path %>
+          <%= link_to t('site.task'), tasks_path %>
           <%= link_to edit_users_path do %>
             <%= image_tag current_user.avatar, size: '36x36', class: 'img-circle' %>
           <% end %>

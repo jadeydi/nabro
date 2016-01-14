@@ -1,46 +1,31 @@
 class Api::AttemptsController < Api::BaseController
-  before_action :set_attempt, only: [:show, :update]
-
   def index
-    middle_attempts = current_user.attempts
-    if params[:id].blank?
-      @attempts = middle_attempts.order(:status).order(created_at: :desc).limit(30)
-    else
-      @attempts = middle_attempts.where('id < ?', params[:id]).where.not(status: 0).order(created_at: :desc).limit(30)
-    end
+    @attempts = Attempt.includes([:user, :task]).order(updated_at: :desc).limit(50)
+
     render json: @attempts
   end
 
-  def show
-    @comments = @attempt.comments.limit(1)
-
-    render json: @attempt, with_comments: true
-  end
-
   def create
-    @attempt = current_user.attempts.new(attempt_params)
-    if @attempt.save
+    count = current_user.tasks.where(status: 0).count
+    if count > 0
+      task = current_user.tasks.where(status: 0).offset(rand(count)).first
+      @attempt = current_user.attempts.create(task_id: task.id)
+      current_user.update_last_clicked_at
       render json: @attempt
     else
-      render json: {errors: @attempt.errors.full_messages}, status: :not_acceptable
+      render json: {}
     end
   end
 
-  def update
-    if @attempt.update(attempt_params)
-      render json: @attempt
-    else
-      render json: {errors: @attempt.errors.full_messages}, status: :not_acceptable
-    end
+  def done
+    @attempt = current_user.attempts.find_by_encrypt_id(params[:id])
+    @attempt.done!
+    render json: @attempt
   end
 
-  private
-
-  def set_attempt
-    @attempt = Attempt.find_by_encrypt_id(params[:id])
-  end
-
-  def attempt_params
-    params[:attempt].permit(:content, :status)
+  def discard
+    @attempt = current_user.attempts.find_by_encrypt_id(params[:id])
+    @attempt.discard!
+    render json: @attempt
   end
 end

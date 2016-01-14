@@ -76,6 +76,11 @@ h4.title {
     }
   }
 
+  .tip {
+    color: #72b9ff;
+    margin-top: 1em;
+  }
+
   .content {
     margin-top: 1em;
   }
@@ -121,7 +126,7 @@ h4.title {
     margin: 2em auto;
   }
 
-  .attempt {
+  .task {
     font-size: 1.125rem;
     text-align: center;
   }
@@ -154,8 +159,8 @@ h4.title {
   }
 }
 
-/*attempt index*/
-.user-attempts.index {
+/*task index*/
+.user-tasks.index {
   width: 520px;
   max-width: 98%;
   margin: 3rem auto;
@@ -191,8 +196,8 @@ h4.title {
   }
 }
 
-/*site attempts*/
-.site.attempts {
+/*site tasks*/
+.site.tasks {
   width: 520px;
   max-width: 98%;
   margin: 3rem auto;
@@ -235,8 +240,8 @@ h4.title {
     margin-top: 1.5rem;
   }
 
-  /*site*attempts*/
-  .site.attempts {
+  /*site*tasks*/
+  .site.tasks {
     margin-top: 2rem;
     .heading {
       font-size: 3.2em;
@@ -244,7 +249,7 @@ h4.title {
     }
   }
 
-  .user-attempts.index {
+  .user-tasks.index {
     margin: 1.6rem auto;
     .list {
       margin-top: 2rem;

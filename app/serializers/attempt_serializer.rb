@@ -1,5 +1,5 @@
 class AttemptSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :status, :created_at, :comments
+  attributes :id, :status, :created_at
 
   def id
     object.encrypted_id
@@ -9,12 +9,6 @@ class AttemptSerializer < ActiveModel::Serializer
     object.created_at.to_s
   end
 
-  def comments
-    if options[:with_comments]
-      object.comments.order(created_at: :desc).limit(30)
-        .map {|c| ActiveModel::Serializer::Adapter::FlattenJson.new(CommentSerializer.new(c)).as_json}
-    else
-     []
-    end
-  end
+  belongs_to :user
+  belongs_to :task
 end

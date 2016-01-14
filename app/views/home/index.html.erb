@@ -3,20 +3,20 @@
   <% if @try %>
     <%= image_tag current_user.avatar, size: '80x80', class: 'img-circle center-block' %>
     <div class="content">
-      <%= @try.attempt.content %>
+      <%= @try.task.content %>
     </div>
     <% if @try.active? %>
       <div class='row operator'>
         <div class='col-xs-6 left' style='text-align: right;'>
-          <%= link_to "放弃", discard_user_attempt_path(@try), method: 'post' %>
+          <%= link_to "放弃", discard_attempt_path(@try), method: 'post' %>
         </div>
         <div class='col-xs-6 right' style='text-align: left;'>
-          <%= link_to "完成", done_user_attempt_path(@try), method: 'post' %>
+          <%= link_to "接受", done_attempt_path(@try), method: 'post' %>
         </div>
       </div>
     <% elsif @try.done?%>
       <div class='done'>
-        <i class='fa fa-check'></i> 完成
+        <i class='fa fa-check'></i> 接受
       </div>
     <% elsif @try.discard? %>
       <div class='discard'>
@@ -24,7 +24,10 @@
       </div>
     <% end %>
   <% else %>
-    <%= link_to '刷', user_attempts_path, method: :post, class: 'brush' %>
+    <%= link_to '刷', attempts_path, method: :post, class: 'brush' %>
+    <div class='tip'>
+      每天可刷一次
+    </div>
   <% end %>
 <% else %>
   <%= link_to '刷', new_user_session_path, class: 'brush' %>

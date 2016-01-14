@@ -3,7 +3,7 @@ module ApplicationHelper
     current_user.blank? ? "" : current_user.last_clicked_at.beginning_of_day.to_i
   end
 
-  def user_attempt_type(ua)
+  def attempt_type(ua)
     case ua.status
     when 'done'
       "完成"

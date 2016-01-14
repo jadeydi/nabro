@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
   GENDER = {'male': 0, 'female': 1}
 
   has_many :states
-  has_many :attempts
+  has_many :tasks
   has_many :comments
-  has_many :user_attempts
+  has_many :attempts
 
   before_create :init_last_clicked_at, :generate_authentication_token
 
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   def last_try
-    user_attempts.includes(:attempt).last
+    attempts.includes(:task).last
   end
 
   private

@@ -1,52 +1,29 @@
 class AttemptsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-  before_action :set_attempt, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
 
   def index
-    @attempts = current_user.attempts.order(:status).order(created_at: :desc).page(params[:page]).per(30)
-  end
-
-  def show
-    @author = @attempt.user
-    @comments = @attempt.comments.includes(:user).page(params[:page]).per(30)
-  end
-
-  def new
-    @attempt = Attempt.new
-  end
-
-  def edit
+    @attempts = Attempt.includes([:user, :task]).order(updated_at: :desc).limit(50)
   end
 
   def create
-    @attempt = current_user.attempts.new(attempt_params)
-
-    if @attempt.save
-      redirect_to attempts_url
+    count = current_user.tasks.where(status: 0).count
+    if count > 0
+      a = current_user.tasks.where(status: 0).offset(rand(count)).first
+      current_user.attempts.create(task_id: a.id)
+      current_user.update_last_clicked_at
+      redirect_to root_url
     else
-      render :new
+      redirect_to tasks_url
     end
   end
 
-  def update
-    if @attempt.update(attempt_params)
-      redirect_to @attempt, notice: '要做更新成功'
-    else
-      render :edit
-    end
+  def done
+    current_user.attempts.find(params[:id]).done!
+    redirect_to root_url
   end
 
-  def destroy
-    @attempt.archived!
-    redirect_to attempts_url, notice: 'Attempt was successfully destroyed.'
-  end
-
-  private
-  def set_attempt
-    @attempt = Attempt.find(params[:id])
-  end
-
-  def attempt_params
-    params[:attempt].permit(:content)
+  def discard
+    current_user.attempts.find(params[:id]).discard!
+    redirect_to root_url
   end
 end

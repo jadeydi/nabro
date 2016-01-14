@@ -1,0 +1,30 @@
+<div class='user-tasks index'>
+<div class='profile'>
+  <%= image_tag current_user.avatar, size: '80x80', class: 'img-circle', alt: current_user.nickname %>
+  <%= link_to new_task_path, class: 'new' do %>
+    <i class="fa fa-pencil-square-o"></i>
+  <% end %>
+</div>
+<ul class='list'>
+  <% @tasks.each do |a|  %>
+    <li>
+      <div class='title'>
+        <%= a.title %>
+      </div>
+      <div class='opt'>
+        <%= a.created_at %>
+        <% if a.active? %>
+          <span>
+            <%= link_to "编辑", edit_task_path(a) %>
+            <%= link_to "完成", task_path(a), method: 'delete', data: {confirm: "不可恢复哦!"} %>
+          </span>
+        <% else %>
+          <span class="label label-info">完成</span>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= paginate @tasks %>
+</div>
