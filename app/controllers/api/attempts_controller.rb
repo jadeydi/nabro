@@ -1,10 +1,4 @@
 class Api::AttemptsController < Api::BaseController
-  def index
-    @attempts = Attempt.includes([:user, :task]).order(updated_at: :desc).limit(50)
-
-    render json: @attempts
-  end
-
   def create
     count = current_user.tasks.where(status: 0).count
     if count > 0
