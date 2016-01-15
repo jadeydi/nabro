@@ -4,14 +4,16 @@ module ApplicationHelper
   end
 
   def attempt_type(ua)
-    case ua.status
+    type = case ua.status
+    when 'fresh'
+      "创建了"
     when 'done'
-      "完成"
+      "接受"
     when 'discard'
       "放弃"
     else
       "刷到了"
     end
-
+    type + "任务"
   end
 end

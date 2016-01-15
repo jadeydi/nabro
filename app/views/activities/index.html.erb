@@ -3,17 +3,17 @@
   <i class="fa fa-rocket"></i>
 </div>
 <ul class='list'>
-  <% @attempts.each do |ua| %>
+  <% @activities.each do |a| %>
     <li>
-      <%= image_tag ua.user.avatar, size: '36x36', class: 'img-circle avatar' %>
+      <%= image_tag a.user.avatar, size: '36x36', class: 'img-circle avatar' %>
       <div class='content'>
         <span class='created at'>
-          <%= ua.created_at %>
+          <%= a.created_at %>
         </span>
-        <%= ua.user.nickname %>
+        <%= a.user.nickname %>
         <div>
-          <%= attempt_type(ua) %>
-          <%= link_to ua.task.title, ua.task %>
+          <%= attempt_type(a) %>
+          <%= link_to a.target.title, a.target %>
         </div>
       </div>
     </li>

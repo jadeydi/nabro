@@ -6,6 +6,7 @@ class Task < ActiveRecord::Base
   validates :content, presence: true
   validate :tasks_count, on: :create
   before_save :generate_title
+  after_create :generate_activity
 
   def self.rand_task
     offset(rand(count)).first
@@ -18,5 +19,9 @@ class Task < ActiveRecord::Base
 
   def tasks_count
     errors.add(I18n.t("activerecord.models.task"), I18n.t("task.max")) if Task.where(user_id: user_id).where(status: 0).count > 6
+  end
+
+  def generate_activity
+    Activity.create(user_id: user_id, target_type: "Task", target_id: id)
   end
 end
