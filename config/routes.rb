@@ -1,29 +1,4 @@
 Rails.application.routes.draw do
-  scope module: :api do
-    #constraints subdomain: 'api' do
-      resources :base, only: [:index]
-      resources :users, only: [:show] do
-        collection do
-          post :reset_password
-          put  :update_avatar
-          post :sign_up
-          post :sign_in
-          get :me
-        end
-      end
-      put :users, to: 'users#update'
-      resources :tasks, only: [:index, :show, :create, :update, :destroy]
-      resources :comments
-      get 'activities', to: 'activities#index'
-      resources :attempts, only: [:create] do
-        member do
-          put :done
-          put :discard
-        end
-      end
-    #end
-  end
-
 
   root 'home#index'
 
@@ -51,5 +26,30 @@ Rails.application.routes.draw do
   end
 
   resources :activities, only: [:index]
+
+  scope module: :api do
+    constraints subdomain: 'api' do
+      resources :base, only: [:index]
+      resources :users, only: [:show] do
+        collection do
+          post :reset_password
+          put  :update_avatar
+          post :sign_up
+          post :sign_in
+          get :me
+        end
+      end
+      put :users, to: 'users#update'
+      resources :tasks, only: [:index, :show, :create, :update, :destroy]
+      resources :comments
+      get 'activities', to: 'activities#index'
+      resources :attempts, only: [:create] do
+        member do
+          put :done
+          put :discard
+        end
+      end
+    end
+  end
 
 end

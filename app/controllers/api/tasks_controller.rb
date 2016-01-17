@@ -14,7 +14,7 @@ class Api::TasksController < Api::BaseController
   def show
     @comments = @task.comments.limit(1)
 
-    render json: @task, with_comments: true
+    render json: @task, with_comments: true, with_user: true
   end
 
   def create

@@ -15,7 +15,7 @@ class Api::CommentsController < Api::BaseController
     if (@target = klass.find_by_encrypt_id(params[:comment][:target_id]) rescue nil).blank?
       return {}
     end
-    @comment = current_user.comments.new(comment_params)
+    @comment = @target.comments.new(comment_params.merge(user_id: current_user.id))
     if @comment.save
       render json: @comment
     else

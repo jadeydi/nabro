@@ -1,5 +1,5 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :status, :created_at, :comments
+  attributes :id, :title, :content, :status, :created_at, :comments, :user
 
   def id
     object.encrypted_id
@@ -15,6 +15,14 @@ class TaskSerializer < ActiveModel::Serializer
         .map {|c| ActiveModel::Serializer::Adapter::FlattenJson.new(CommentSerializer.new(c)).as_json}
     else
      []
+    end
+  end
+
+  def user
+    if options[:with_user]
+      ActiveModel::Serializer::Adapter::FlattenJson.new(UserSerializer.new(object.user)).as_json
+    else
+      nil
     end
   end
 end
