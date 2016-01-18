@@ -1,31 +1,33 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  constraints subdomain: '' do
+    root 'home#index'
 
-  devise_for :users, :skip => [:registrations]
-  as :user do
-    get 'users/sign_up' => 'devise/registrations#new', :as => 'new_user_registration'
-    post 'users' => 'devise/registrations#create', :as => 'user_registration'
-  end
-
-  resource :users, only: [:edit, :update] do
-    collection do
-      get :update_avatar
-      post :update_avatar
+    devise_for :users, :skip => [:registrations]
+    as :user do
+      get 'users/sign_up' => 'devise/registrations#new', :as => 'new_user_registration'
+      post 'users' => 'devise/registrations#create', :as => 'user_registration'
     end
-  end
 
-  resources :states, only: [:create]
-  resources :tasks
-  resources :comments
-  resources :attempts, only: [:create] do
-    member do
-      post :done
-      post :discard
+    resource :users, only: [:edit, :update] do
+      collection do
+        get :update_avatar
+        post :update_avatar
+      end
     end
-  end
 
-  resources :activities, only: [:index]
+    resources :states, only: [:create]
+    resources :tasks
+    resources :comments
+    resources :attempts, only: [:create] do
+      member do
+        post :done
+        post :discard
+      end
+    end
+
+    resources :activities, only: [:index]
+  end
 
   scope module: :api do
     constraints subdomain: 'api' do
