@@ -22,7 +22,7 @@ class Api::TasksController < Api::BaseController
     if @task.save
       render json: @task
     else
-      render json: {errors: @task.errors.full_messages}, status: :not_acceptable
+      render json: {error: @task.errors.full_messages}, status: :not_acceptable
     end
   end
 
@@ -30,7 +30,7 @@ class Api::TasksController < Api::BaseController
     if @task.update(task_params)
       render json: @task
     else
-      render json: {errors: @task.errors.full_messages}, status: :not_acceptable
+      render json: {error: @task.errors.full_messages}, status: :not_acceptable
     end
   end
 

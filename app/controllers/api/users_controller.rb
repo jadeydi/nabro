@@ -16,7 +16,7 @@ class Api::UsersController < Api::BaseController
       @user.send_reset_password_instructions
       render json: {succuss: true}, status: :ok
     else
-      render json: {errors: "用户不存在"}, status: :not_found
+      render json: {error: "用户不存在"}, status: :not_found
     end
   end
 
@@ -24,7 +24,7 @@ class Api::UsersController < Api::BaseController
     if current_user.update_attributes(public_params)
       render json: current_user
     else
-      render json: {errors: current_user.errors.full_messages}, status: :not_acceptable
+      render json: {error: current_user.error.full_messages}, status: :not_acceptable
     end
   end
 
@@ -33,7 +33,7 @@ class Api::UsersController < Api::BaseController
     if current_user.save
       render json: current_user
     else
-      render json: {errors: "头像更新失败"}, status: :not_acceptable
+      render json: {error: "头像更新失败"}, status: :not_acceptable
     end
   end
 
@@ -43,7 +43,7 @@ class Api::UsersController < Api::BaseController
     if @user.save
       render json: @user
     else
-      render json: {errors: @user.errors.full_messages}, status: :not_acceptable
+      render json: {error: @user.errors.full_messages}, status: :not_acceptable
     end
   end
 
@@ -53,7 +53,7 @@ class Api::UsersController < Api::BaseController
     if @user && @user.valid_password?(params[:password])
       render json: @user
     else
-      render json: {errors: I18n.t("error.username_or_password_not_match")}, status: :unauthorized
+      render json: {error: I18n.t("error.username_or_password_not_match")}, status: :unauthorized
     end
   end
 
