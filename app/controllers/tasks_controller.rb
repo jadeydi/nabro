@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 
   def show
     @author = @task.user
-    @comments = @task.comments.includes(:user).page(params[:page]).per(30)
+    @comments = @task.comments.includes(:user).order(created_at: :desc).page(params[:page]).per(30)
   end
 
   def new
