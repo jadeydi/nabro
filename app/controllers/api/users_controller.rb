@@ -51,6 +51,7 @@ class Api::UsersController < Api::BaseController
     @user = User.find_by_email(params[:email])
 
     if @user && @user.valid_password?(params[:password])
+      warden.set_user(@user)
       render json: @user
     else
       render json: {error: I18n.t("error.username_or_password_not_match")}, status: :unauthorized
