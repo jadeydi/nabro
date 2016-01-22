@@ -5,6 +5,6 @@
   config.qiniu_bucket        = $system.qiniu.bucket
   config.qiniu_bucket_domain = $system.qiniu.domain
   config.qiniu_block_size    = 4*1024*1024
-  config.qiniu_protocol      = "http"
+  config.qiniu_protocol      = "https"
   config.qiniu_can_overwrite = true
 end
