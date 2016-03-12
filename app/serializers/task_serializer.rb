@@ -1,5 +1,5 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :status, :created_at, :comments, :user
+  attributes :id, :title, :content, :status, :created_at, :comments_count, :likes_count, :comments, :user
 
   def id
     object.encrypted_id

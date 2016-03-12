@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115154845) do
+ActiveRecord::Schema.define(version: 20160309152818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,13 +62,22 @@ ActiveRecord::Schema.define(version: 20160115154845) do
 
   add_index "states", ["user_id"], name: "index_states_on_user_id", using: :btree
 
+  create_table "task_likers", force: :cascade do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "status",     default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "status",         default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "comments_count", default: 0
+    t.integer  "likes_count",    default: 0
   end
 
   create_table "user_auths", force: :cascade do |t|
