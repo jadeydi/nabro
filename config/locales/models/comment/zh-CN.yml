@@ -1,0 +1,7 @@
+zh-CN:
+  activerecord:
+    models:
+      comment: 评论
+    attributes:
+      task:
+        content: 内容
