@@ -5,8 +5,8 @@ $account-width: 360px;
   background: white;
   width: $account-width;
   max-width: 98%;
-  margin: 5em auto;
-  padding: 48px 24px;
+  margin: 0 auto;
+  padding: 25px 20px;
 }
 
 h4.title {
@@ -21,6 +21,7 @@ h4.title {
 /* sign in/up */
 .user.ailse {
   @include small-layout;
+  color: #515151;
 
   &.in {
   }

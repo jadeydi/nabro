@@ -1,17 +1,44 @@
 #container {
-    min-height: 100vh;
-    height: auto;
-    position: relative;
-    min-width: 290px;
-    overflow: hidden;
-    opacity: 1;
-    visibility: visible;
+  min-height: 100vh;
+  height: auto;
+  position: relative;
+  min-width: 290px;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
 }
 
 .cls-container {
-    background-color: #212124;
-    color: #fff;
-    text-align: center;
+  background-color: #212124;
+  color: #fff;
+  text-align: center;
+}
+
+.cls-content {
+  padding: 50px 15px 15px;
+  padding-top: 10vh;
+  position: relative;
+}
+
+.pad-ver {
+  font-size: 12px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+
+  .mar-rgt {
+    margin-right: 1rem;
+  }
+
+  .mar-lft {
+    margin-left: 1rem;
+  }
 }
 
 .bg-img-ballon {
@@ -29,9 +56,9 @@
 }
 
 .cls-header {
-	position:relative;
-	background-color:rgba(0,0,0,0.1);
-	font-size:27px;
+  position:relative;
+  background-color:rgba(0,0,0,0.1);
+  font-size:27px;
 
   &.cls-header-lg {
     .cls-brand {
@@ -53,16 +80,16 @@
 }
 
 .cls-header:after {
-	content:"";
-	display:block;
-	border-top:10px solid rgba(0,0,0,0.1);
-	border-left:10px solid transparent;
-	border-right:10px solid transparent;
-	width:0;
-	height:0;
-	position:absolute;
-	left:50%;
-	margin-bottom:-10px;
-	margin-left:-10px;
-	bottom:0
+  content:"";
+  display:block;
+  border-top:10px solid rgba(0,0,0,0.1);
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  width:0;
+  height:0;
+  position:absolute;
+  left:50%;
+  margin-bottom:-10px;
+  margin-left:-10px;
+  bottom:0
 }

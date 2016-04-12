@@ -1,36 +1,39 @@
-<div class='user ailse in border'>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-group">
-    <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">
-        <%= icon('envelope-o') %>
-      </span>
-      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+<div class='cls-content'>
+<div class='user ailse in'>
+  <p>帐号登录</p>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">
+          <%= icon('envelope-o') %>
+        </span>
+        <%= f.email_field :email, placeholder: '邮箱', autofocus: true, class: 'form-control' %>
+      </div>
+
     </div>
 
-  </div>
-
-  <div class="form-group">
-    <div class="input-group">
-      <span class="input-group-addon">
-        <%= icon('key') %>
-      </span>
-      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <%= icon('key') %>
+        </span>
+        <%= f.password_field :password, placeholder: '密码', autocomplete: "off", class: 'form-control' %>
+      </div>
     </div>
-  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <%= f.check_box :remember_me, checked: true, class: 'hidden' %>
-  <% end -%>
+    <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me, checked: true, class: 'hidden' %>
+    <% end -%>
 
-  <div class="container">
-    <div class="row">
-      <%= f.submit "登 录", class: 'btn btn-success col-xs-12' %>
+    <div class="container">
+      <div class="row">
+        <%= f.submit "登 录", class: 'btn btn-success col-xs-12' %>
+      </div>
     </div>
-  </div>
-<% end %>
-
-<div class="other-links">
-  <%= link_to "忘记密码?", new_password_path(resource_name), class: 'next' %>
+  <% end %>
+</div>
+<div class="pad-ver">
+  <%= link_to "忘记密码?", new_password_path(resource_name), class: 'btn-link mar-rgt' %>
+  <%= link_to "注册", new_user_registration_path, class: 'btn-link mar-lft' %>
 </div>
 </div>
