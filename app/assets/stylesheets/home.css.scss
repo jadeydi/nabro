@@ -18,6 +18,33 @@
   padding: 50px 15px 15px;
   padding-top: 10vh;
   position: relative;
+
+  .slogan {
+    h1 {
+      margin-top: 1em;
+    }
+
+    h2 {
+      margin: 1em auto 0;
+      max-width: 320px;
+      text-align: right;
+    }
+  }
+}
+
+.cls-home-ver {
+  position: absolute;
+  bottom: 2em;
+  right: 3em;
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+  .mar-rgt {
+    margin-right: 1em;
+  }
 }
 
 .pad-ver {
