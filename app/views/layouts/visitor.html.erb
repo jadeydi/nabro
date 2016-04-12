@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>刷人生</title>
+    <meta encoding="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag %>
+  </head>
+  <body>
+    <div id='container' class='cls-container'>
+      <div id="bg-overlay" class="bg-img-ballon"></div>
+      <div class="cls-header cls-header-lg">
+        <div class="cls-brand">
+          <a class="box-inline" href="/">
+            <span class="brand-title">刷人生</span>
+          </a>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+    <%= render 'shared/analytics' %>
+  </body>
+</html>
