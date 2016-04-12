@@ -13,12 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require moment
-//= require_tree .
+//= require jquery.timeago
 
-$(function() {
-  $('.js_current_time').html(moment().utc().format('YYYY-MM-DD h:mm:ss UTC'));
-  setInterval(function() {
-    $('.js_current_time').html(moment().utc().format('YYYY-MM-DD h:mm:ss UTC'));
-  }, 1000);
+$(document).on('ready page:load', function() {
+  $("time.timeago").timeago();
 });

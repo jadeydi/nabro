@@ -7,9 +7,9 @@
     <li>
       <%= image_tag a.user.avatar, size: '36x36', class: 'img-circle avatar' %>
       <div class='content'>
-        <span class='created at'>
-          <%= a.created_at %>
-        </span>
+        <time class='created at timeago' datetime="<%= a.created_at.to_s(:iso) %>">
+          <%= a.created_at.to_s(:iso) %>
+        </time>
         <%= a.user.nickname %>
         <div>
           <%= attempt_type(a) %>
