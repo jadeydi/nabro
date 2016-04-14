@@ -1,6 +1,9 @@
 <div class='user ailse edit border'>
 <div class='avatar'>
   <%=link_to image_tag(@user.avatar, size: '80x80'), update_avatar_users_path %>
+  <%= link_to update_avatar_users_path, class: 'new' do %>
+    <i class="fa fa-pencil"></i>
+  <% end %>
 </div>
 
 <%= form_for(@user, url: users_path, html: { method: :put }) do |f| %>
