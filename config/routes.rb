@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
 
     resources :activities, only: [:index]
+
+    resources :pages, only: [:show]
   end
 
   scope module: :api do

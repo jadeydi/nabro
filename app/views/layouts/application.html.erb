@@ -30,6 +30,11 @@
     <div class='container'>
       <%= yield %>
     </div>
+
+    <div class='footer'>
+      &copy; 2016
+      <%= link_to '关于我们', page_path(:about)%>
+    </div>
     <%= render 'shared/analytics' %>
   </body>
 </html>
