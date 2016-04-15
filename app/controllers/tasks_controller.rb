@@ -3,7 +3,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = current_user.tasks.order(:status).order(created_at: :desc).page(params[:page]).per(30)
+    @task = current_user.tasks.where(status: 0).last
+    @tasks = current_user.tasks.where(status: 1).order(created_at: :desc).page(params[:page]).per(30)
   end
 
   def show

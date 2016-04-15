@@ -18,7 +18,7 @@ class Task < ActiveRecord::Base
   end
 
   def tasks_count
-    errors.add(I18n.t("activerecord.models.task"), I18n.t("task.max")) if Task.where(user_id: user_id).where(status: 0).count > 6
+    errors.add(I18n.t("activerecord.models.task"), I18n.t("task.max")) if Task.where(user_id: user_id).where(status: 0).count > 1
   end
 
   def generate_activity

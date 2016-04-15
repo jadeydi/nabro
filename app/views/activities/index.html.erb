@@ -3,17 +3,16 @@
   <i class="fa fa-rocket"></i>
 </div>
 <ul class='list'>
-  <% @activities.each do |a| %>
+  <% @tasks.each do |task| %>
     <li>
-      <%= image_tag a.user.avatar, size: '36x36', class: 'img-circle avatar' %>
+      <%= image_tag task.user.avatar, size: '36x36', class: 'img-circle avatar' %>
       <div class='content'>
-        <time class='created at timeago' datetime="<%= a.created_at.to_s(:iso) %>">
-          <%= a.created_at.to_s(:iso) %>
+        <time class='created at timeago' datetime="<%= task.created_at.to_s(:iso) %>">
+          <%= task.created_at.to_s(:iso) %>
         </time>
-        <%= a.user.nickname %>
+        <%= task.user.nickname %>
         <div>
-          <%= attempt_type(a) %>
-          <%= link_to a.target.title, a.target %>
+          <%= link_to task.title, task %>
         </div>
       </div>
     </li>

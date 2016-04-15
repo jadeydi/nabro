@@ -1,6 +1,6 @@
 zh-CN:
   task:
-    max: "最多有七个"
+    max: 最多有一个
   activerecord:
     models:
       task: 待做

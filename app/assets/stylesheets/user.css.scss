@@ -171,11 +171,18 @@ h4.title {
       vertical-align: bottom;
     }
   }
+
+  .task {
+    font-size: 1.125rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
   .list {
     .new {
       font-size: 1.6em;
     }
-    margin-top: 3rem;
+    margin-top: 2rem;
     li {
       border-top: 1px dashed #eee;
       padding: 12px 0;
@@ -193,6 +200,11 @@ h4.title {
         }
       }
     }
+  }
+
+  .cls-empty {
+    text-align: center;
+    color: #bbb;
   }
 }
 

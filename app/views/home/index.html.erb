@@ -1,11 +1,17 @@
 <div class='cls-content'>
 <div class='slogan'>
-  <h1>
-    在这里，你只有一件待做事项。
-  </h1>
-  <h2>
-    思考，行动，分享
-  </h2>
+  <% if @task %>
+    <h1 class='task'>
+      <%= @task.title %>
+    </h1>
+  <% else %>
+    <h1>
+      在这里，你只有一件待做事项。
+    </h1>
+    <h2>
+      思考，行动，分享
+    </h2>
+  <% end %>
 </div>
 </div>
 
