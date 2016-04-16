@@ -5,7 +5,11 @@
 <div class='list'>
   <div class='task'>
   <% if @task %>
-    当前任务: <%= @task.title %>
+    当前任务: <%= @task.title %> <br />
+    <span>
+      <%= link_to "编辑", edit_task_path(@task) %>
+      <%= link_to "完成", "javascript:;", data: {toggle: "modal", target: "#task-finish"} %>
+    </span>
   <% else %>
     <%= link_to new_task_path, class: 'new' do %>
       <i class="fa fa-pencil-square-o"></i>
@@ -16,7 +20,7 @@
     <% @tasks.each do |a|  %>
       <li>
         <div class='title'>
-          <%= a.title %>
+          <%= link_to a.title, a %>
         </div>
         <div class='opt'>
           <time class='timeago' datetime="<%= a.created_at.to_s(:iso) %>">
@@ -45,3 +49,26 @@
 
 <%= paginate @tasks %>
 </div>
+
+<% if @task %>
+  <div class="modal fade" id='task-finish' tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= form_for(@task, url: archive_task_path(@task)) do |f| %>
+            <div class="form-group">
+              <%= f.label :body, '总结' %>
+              <%= f.text_area :body, class: 'form-control cls-body' %>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <%= f.submit "保存", class: 'btn btn-success col-xs-12' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

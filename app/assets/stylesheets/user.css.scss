@@ -121,6 +121,14 @@ h4.title {
 .user.show {
   margin-top: 3rem;
 
+  .cls-body {
+    margin-top: 2rem;
+  }
+
+  .cls-finish {
+    font-size: 0.75rem;
+  }
+
   .content {
     width: 520px;
     max-width: 98%;
@@ -176,6 +184,9 @@ h4.title {
     font-size: 1.125rem;
     text-align: center;
     margin-bottom: 2rem;
+    a {
+      font-size: 0.8rem;
+    }
   }
 
   .list {
@@ -208,6 +219,19 @@ h4.title {
   }
 }
 
+#task-finish {
+  .cls-body {
+    height: 10em;
+  }
+}
+
+.cls-task-edit {
+  width: 480px;
+  max-width: 98%;
+  margin: 5em auto 0;
+  padding: 25px 20px;
+}
+
 /*site tasks*/
 .site.tasks {
   width: 520px;
@@ -216,6 +240,10 @@ h4.title {
   .heading {
     text-align: center;
     font-size: 4.2em;
+  }
+  .cls-finish {
+    float: right;
+    margin-right: 1em;
   }
   .list {
     margin-top: 2rem;
@@ -229,6 +257,7 @@ h4.title {
         margin-left: 4em;
       }
       .created.at {
+        font-size: .78rem;
         float: right;
         color: #b2b3b7;
       }
@@ -274,6 +303,7 @@ h4.title {
 
   .user.show {
     margin-top: 1.2rem;
+
     .comments {
       margin-top: 1.6rem;
     }

@@ -8,6 +8,8 @@ class Task < ActiveRecord::Base
   before_save :generate_title
   after_create :generate_activity
 
+  scope :quality, -> {where(quality: 1)}
+
   def self.rand_task
     offset(rand(count)).first
   end

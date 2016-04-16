@@ -10,6 +10,9 @@
         <time class='created at timeago' datetime="<%= task.created_at.to_s(:iso) %>">
           <%= task.created_at.to_s(:iso) %>
         </time>
+        <% if task.archived? %>
+          <span class="label label-info cls-finish">完成</span>
+        <% end %>
         <%= task.user.nickname %>
         <div>
           <%= link_to task.title, task %>

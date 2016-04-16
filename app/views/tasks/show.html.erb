@@ -4,6 +4,12 @@
 <div class='content'>
   <div class='task'>
     <%= @task.content %>
+    <% if @task.archived? %>
+      <span class="label label-info cls-finish">完成</span>
+    <% end %>
+  </div>
+  <div class='cls-body'>
+    <%= @task.body %>
   </div>
   <div class='comments'>
     <% unless @comments.blank? %>
@@ -13,9 +19,9 @@
             <%= image_tag c.user.avatar, size: '36x36', class: 'img-circle'%>
             <div class='detail'>
               <%= c.user.nickname %>
-              <span class='created at'>
-                <%= c.created_at.to_s %>
-              </span>
+              <time class='created at timeago' datetime="<%= c.created_at.to_s(:iso) %>" >
+                <%= c.created_at.to_s(:iso) %>
+              </time>
               <div>
                 <%= c.content %>
                 <% if c.user_id == current_user.try(:id) %>

@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     end
 
     resources :states, only: [:create]
-    resources :tasks
+    resources :tasks do
+      member do
+        patch :archive
+      end
+    end
     resources :comments
     resources :attempts, only: [:create] do
       member do

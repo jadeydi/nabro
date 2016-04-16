@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :archive, :destroy]
 
   def index
     @task = current_user.tasks.where(status: 0).last
@@ -37,6 +37,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def archive
+    @task.update(task_params.merge({status: :archived}))
+    redirect_to tasks_url
+  end
+
   def destroy
     @task.archived!
     redirect_to tasks_url, notice: 'Task was successfully destroyed.'
@@ -48,6 +53,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params[:task].permit(:content)
+    params[:task].permit(:content, :body)
   end
 end

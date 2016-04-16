@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.org'
+source 'https://gems.ruby-china.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -36,7 +36,7 @@ gem 'recursive-open-struct'
 gem 'hashids'
 gem 'puma'
 gem 'active_model_serializers', "~> 0.10.0.rc3"
-gem 'bootstrap', "~> 4.0.0.alpha1"
+gem 'bootstrap', "~> 4.0.0.alpha3"
 gem 'font-awesome-sass', '~> 4.4.0'
 gem 'exception_notification'
 gem 'rolify'
