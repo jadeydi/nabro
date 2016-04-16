@@ -42,6 +42,9 @@ gem 'exception_notification'
 gem 'rolify'
 gem 'kaminari'
 gem 'rails-i18n', '~> 4.0.0'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 
 group :development do
   gem 'capistrano-rvm'
