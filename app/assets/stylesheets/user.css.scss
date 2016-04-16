@@ -168,57 +168,6 @@ h4.title {
   }
 }
 
-/*task index*/
-.user-tasks.index {
-  width: 520px;
-  max-width: 98%;
-  margin: 3rem auto;
-  .profile {
-    text-align: center;
-    img {
-      vertical-align: bottom;
-    }
-  }
-
-  .task {
-    font-size: 1.125rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    a {
-      font-size: 0.8rem;
-    }
-  }
-
-  .list {
-    .new {
-      font-size: 1.6em;
-    }
-    margin-top: 2rem;
-    li {
-      border-top: 1px dashed #eee;
-      padding: 12px 0;
-    }
-    .title {
-      font-size: 1.125em;
-    }
-    .opt {
-      margin-top: 0.5em;
-      color: #b2b3b7;
-      span {
-        float: right;
-        a {
-          margin-left: 0.6em;
-        }
-      }
-    }
-  }
-
-  .cls-empty {
-    text-align: center;
-    color: #bbb;
-  }
-}
-
 #task-finish {
   .cls-body {
     height: 10em;
