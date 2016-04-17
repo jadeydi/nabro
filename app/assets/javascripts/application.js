@@ -15,6 +15,7 @@
 //= require tether
 //= require bootstrap
 //= require turbolinks
+//= require jquery.interactive_bg
 //= require jquery.timeago
 
 jQuery.timeago.settings.strings = {
@@ -39,4 +40,12 @@ jQuery.timeago.settings.strings = {
 
 $(document).on('ready page:load', function() {
   $("time.timeago").timeago();
+
+  $("#bg-overlay").interactive_bg({
+    strength: 15,
+    scale: 1.02,
+    animationSpeed: "200ms",
+    contain: true,
+    wrapContent: false
+  });
 });
