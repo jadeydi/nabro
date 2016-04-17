@@ -49,3 +49,10 @@ $(document).on('ready page:load', function() {
     wrapContent: false
   });
 });
+
+$(window).resize(function() {
+  $("#bg-overlay > .ibg-bg").css({
+    width: $(window).outerWidth(),
+    height: $(window).outerHeight()
+  });
+});
