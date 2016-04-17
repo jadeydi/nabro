@@ -9,7 +9,7 @@
     <% end %>
   </div>
   <div class='cls-body'>
-    <%= @task.body %>
+    <%=simple_format @task.body %>
   </div>
   <div class='comments'>
     <% unless @comments.blank? %>
