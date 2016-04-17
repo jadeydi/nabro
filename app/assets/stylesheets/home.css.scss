@@ -91,6 +91,8 @@
     .cls-brand {
       line-height:60px;
       padding: 20px 0;
+      box-sizing: border-box;
+
       a {
         color: white;
         text-decoration: none;
@@ -124,6 +126,7 @@
 @media (max-width: 544px) {
   .cls-content {
     padding-top: 20px;
+    box-sizing: border-box;
 
     h1 {
       font-size: 1.5em;

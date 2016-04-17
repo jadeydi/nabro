@@ -48,11 +48,11 @@ $(document).on('ready page:load', function() {
     contain: true,
     wrapContent: false
   });
-});
 
-$(window).resize(function() {
-  $("#bg-overlay > .ibg-bg").css({
-    width: $(window).outerWidth(),
-    height: $(window).outerHeight()
+  $(window).resize(function() {
+    $("#bg-overlay > .ibg-bg").css({
+      width: $('body').outerWidth(),
+      height: $('body').outerHeight()
+    });
   });
 });
