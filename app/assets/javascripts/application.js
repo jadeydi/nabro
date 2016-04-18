@@ -46,7 +46,8 @@ $(document).on('ready page:load', function() {
     scale: 1.02,
     animationSpeed: "200ms",
     contain: true,
-    wrapContent: false
+    wrapContent: false,
+    mobile: false
   });
 
   $(window).resize(function() {
