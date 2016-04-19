@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
   enum status: [:active, :archived]
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   has_many :comments, as: :target
 
   validates :content, presence: true
