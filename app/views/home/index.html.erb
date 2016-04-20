@@ -1,25 +1,19 @@
 <div class='cls-content'>
-<div class='slogan animated bounceInDown'>
-  <% if @task %>
-    <h1 class='task'>
-      <%= @task.title %>
-    </h1>
-  <% else %>
-    <h1>
-      在这里，你只有一件待做事项。
-    </h1>
-    <h2>
-      思考，行动，分享
-    </h2>
-  <% end %>
-</div>
-</div>
+<div class='slogan'>
+  <h1>
+    <i class="fa fa-bell-o"></i>
+  </h1>
 
-<div class='cls-home-ver'>
+  <div class='info'>
+    <span class="animated bounceInLeft">#<%= ((Time.now - DateTime.new(2016,2,3)) / 1.day).to_i %></span> 天  <span class="cls-right animated bounceInRight">#<%= @count %></span> 任务
+  </div>
+  <div class='task'>
+    #接下来要做的事情#想做#完成#记录#
+  </div>
   <% if current_user %>
-    <%= link_to "返回个人主页", tasks_path %>
+    <%= link_to "返回个人主页", tasks_path, class: 'btn btn-primary join' %>
   <% else %>
-    <%= link_to "登录", new_user_session_path, class: 'btn-link mar-rgt' %>
-    <%= link_to "注册", new_user_registration_path, class: 'btn-link mar-lft' %>
+    <%= link_to "加入我们", new_user_session_path, class: 'btn btn-primary join' %>
   <% end %>
+</div>
 </div>
