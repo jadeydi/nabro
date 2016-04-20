@@ -23,7 +23,7 @@
 
   .slogan {
     h1 {
-      color: #F0C029;
+      color: $color-yellow;
       font-size: 2rem;
       font-weight: 100;
     }
@@ -38,7 +38,7 @@
     .info {
       margin-top: 3rem;
       span {
-        color: #F0C029;
+        color: $color-yellow;
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-size: 1.75rem;
         &.cls-right {
@@ -53,7 +53,7 @@
     }
 
     .join {
-      background-color: #F0C029;
+      background-color: $color-yellow;
       margin-top: 2rem;
       border: 0px;
       border-radius: 0px;
